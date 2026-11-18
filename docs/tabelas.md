@@ -1,67 +1,71 @@
 # Tabelas geradas (src/relatorio.py)
 
-## 1. Média por ferramenta e por RAG
+## 1. Média por ferramenta e por técnica de busca
 
-| Ferramenta | RAG | Fidelidade | Relevância da resposta | Precisão do contexto | Cobertura do contexto |
+| Ferramenta | Técnica | Fidelidade | Relevância da resposta | Precisão do contexto | Cobertura do contexto |
 |---|---|---|---|---|---|
-| ragas | vetor (bom) | 0.98 | 0.80 | 0.50 | 0.88 |
 | ragas | palavras (ruim) | 0.72 | 0.42 | 0.31 | 0.58 |
-| deepeval | vetor (bom) | 0.88 | 0.96 | 0.77 | 0.81 |
+| ragas | vetor (bom) | 0.98 | 0.80 | 0.50 | 0.88 |
+| ragas | BM25 | 1.00 | 0.57 | 0.50 | 0.71 |
+| ragas | árvore | 0.79 | 0.78 | 0.88 | 0.92 |
+| ragas | agêntico | 0.88 | 0.78 | 0.88 | 0.85 |
+| ragas | grafo | 1.00 | 0.34 | 0.31 | 0.46 |
 | deepeval | palavras (ruim) | 0.50 | 0.96 | 0.50 | 0.42 |
-| promptfoo | vetor (bom) | 1.00 | 0.85 | 0.25 | 0.78 |
+| deepeval | vetor (bom) | 0.88 | 0.96 | 0.77 | 0.81 |
 | promptfoo | palavras (ruim) | 0.83 | 0.65 | 0.17 | 0.37 |
+| promptfoo | vetor (bom) | 1.00 | 0.85 | 0.25 | 0.78 |
 
-## 2. Fidelidade por pergunta (bom / ruim)
-
-| Pergunta | ragas | deepeval | promptfoo |
-|---|---|---|---|
-| q1 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 1.00 |
-| q2 | 1.00 / 0.75 | 1.00 / 1.00 | 1.00 / 1.00 |
-| q3 | 1.00 / 1.00 | 1.00 / 0.00 | 1.00 / 1.00 |
-| q4 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 0.67 |
-| q5 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 1.00 |
-| q6 | 1.00 / 0.00 | 1.00 / 0.00 | 1.00 / 0.00 |
-| q7 | 0.83 / 0.00 | 1.00 / 0.00 | 1.00 / 1.00 |
-| q8 | 1.00 / 1.00 | 0.00 / 0.00 | 1.00 / 1.00 |
-
-## 2. Relevância da resposta por pergunta (bom / ruim)
+## 2. Fidelidade por pergunta (palavras (ruim) / vetor (bom) / BM25 / árvore / agêntico / grafo)
 
 | Pergunta | ragas | deepeval | promptfoo |
 |---|---|---|---|
-| q1 | 0.95 / 0.99 | 1.00 / 1.00 | 0.95 / 0.96 |
-| q2 | 0.77 / 0.81 | 0.67 / 0.67 | 0.74 / 0.80 |
-| q3 | 0.97 / 0.00 | 1.00 / 1.00 | 0.97 / 0.48 |
-| q4 | 0.98 / 0.70 | 1.00 / 1.00 | 0.98 / 0.68 |
-| q5 | 0.87 / 0.88 | 1.00 / 1.00 | 0.85 / 0.86 |
-| q6 | 0.88 / 0.00 | 1.00 / 1.00 | 0.86 / 0.47 |
-| q7 | 1.00 / 0.00 | 1.00 / 1.00 | 1.00 / 0.47 |
-| q8 | 0.00 / 0.00 | 1.00 / 1.00 | 0.48 / 0.48 |
+| q1 | 1.00 / 1.00 / 1.00 / 1.00 / 1.00 / 1.00 | 1.00 / 1.00 / – / – / – / – | 1.00 / 1.00 / – / – / – / – |
+| q2 | 0.75 / 1.00 / 1.00 / 0.33 / 1.00 / 1.00 | 1.00 / 1.00 / – / – / – / – | 1.00 / 1.00 / – / – / – / – |
+| q3 | 1.00 / 1.00 / 1.00 / 1.00 / 1.00 / 1.00 | 0.00 / 1.00 / – / – / – / – | 1.00 / 1.00 / – / – / – / – |
+| q4 | 1.00 / 1.00 / 1.00 / 0.00 / 0.00 / 1.00 | 1.00 / 1.00 / – / – / – / – | 0.67 / 1.00 / – / – / – / – |
+| q5 | 1.00 / 1.00 / 1.00 / 1.00 / 1.00 / 1.00 | 1.00 / 1.00 / – / – / – / – | 1.00 / 1.00 / – / – / – / – |
+| q6 | 0.00 / 1.00 / 1.00 / 1.00 / 1.00 / 1.00 | 0.00 / 1.00 / – / – / – / – | 0.00 / 1.00 / – / – / – / – |
+| q7 | 0.00 / 0.83 / 1.00 / 1.00 / 1.00 / 1.00 | 0.00 / 1.00 / – / – / – / – | 1.00 / 1.00 / – / – / – / – |
+| q8 | 1.00 / 1.00 / 1.00 / 1.00 / 1.00 / 1.00 | 0.00 / 0.00 / – / – / – / – | 1.00 / 1.00 / – / – / – / – |
 
-## 2. Precisão do contexto por pergunta (bom / ruim)
-
-| Pergunta | ragas | deepeval | promptfoo |
-|---|---|---|---|
-| q1 | 0.33 / 0.00 | 1.00 / 1.00 | 0.60 / 0.67 |
-| q2 | 1.00 / 1.00 | 1.00 / 1.00 | 0.20 / 0.00 |
-| q3 | 0.00 / 0.00 | 1.00 / 0.00 | 0.00 / 0.00 |
-| q4 | 0.33 / 0.50 | 0.33 / 0.50 | 0.20 / 0.33 |
-| q5 | 1.00 / 1.00 | 1.00 / – | 0.20 / 0.33 |
-| q6 | 0.33 / 0.00 | 0.83 / 1.00 | 0.40 / 0.00 |
-| q7 | 1.00 / 0.00 | 1.00 / 0.00 | 0.40 / 0.00 |
-| q8 | 0.00 / 0.00 | 0.00 / 0.00 | 0.00 / 0.00 |
-
-## 2. Cobertura do contexto por pergunta (bom / ruim)
+## 2. Relevância da resposta por pergunta (palavras (ruim) / vetor (bom) / BM25 / árvore / agêntico / grafo)
 
 | Pergunta | ragas | deepeval | promptfoo |
 |---|---|---|---|
-| q1 | 1.00 / 0.50 | 1.00 / 0.00 | 1.00 / 0.50 |
-| q2 | 1.00 / 1.00 | 1.00 / 1.00 | – / – |
-| q3 | 0.50 / 0.00 | 0.50 / 0.00 | 0.50 / 0.00 |
-| q4 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / – |
-| q5 | 1.00 / 1.00 | 1.00 / 1.00 | – / 1.00 |
-| q6 | 1.00 / 0.67 | 1.00 / 0.33 | 0.67 / 0.33 |
-| q7 | 1.00 / 0.00 | 1.00 / 0.00 | 1.00 / – |
-| q8 | 0.50 / 0.50 | 0.00 / 0.00 | 0.50 / 0.00 |
+| q1 | 0.99 / 0.95 / 0.00 / 0.85 / 0.85 / 0.00 | 1.00 / 1.00 / – / – / – / – | 0.96 / 0.95 / – / – / – / – |
+| q2 | 0.81 / 0.77 / 0.81 / 0.81 / 0.81 / 0.76 | 0.67 / 0.67 / – / – / – / – | 0.80 / 0.74 / – / – / – / – |
+| q3 | 0.00 / 0.97 / 0.99 / 0.96 / 0.99 / 0.00 | 1.00 / 1.00 / – / – / – / – | 0.48 / 0.97 / – / – / – / – |
+| q4 | 0.70 / 0.98 / 0.00 / 0.98 / 0.98 / 0.00 | 1.00 / 1.00 / – / – / – / – | 0.68 / 0.98 / – / – / – / – |
+| q5 | 0.88 / 0.87 / 1.00 / 1.00 / 1.00 / 1.00 | 1.00 / 1.00 / – / – / – / – | 0.86 / 0.85 / – / – / – / – |
+| q6 | 0.00 / 0.88 / 0.74 / 0.62 / 0.62 / 0.00 | 1.00 / 1.00 / – / – / – / – | 0.47 / 0.86 / – / – / – / – |
+| q7 | 0.00 / 1.00 / 1.00 / 1.00 / 1.00 / 1.00 | 1.00 / 1.00 / – / – / – / – | 0.47 / 1.00 / – / – / – / – |
+| q8 | 0.00 / 0.00 / 0.00 / 0.00 / 0.00 / 0.00 | 1.00 / 1.00 / – / – / – / – | 0.48 / 0.48 / – / – / – / – |
+
+## 2. Precisão do contexto por pergunta (palavras (ruim) / vetor (bom) / BM25 / árvore / agêntico / grafo)
+
+| Pergunta | ragas | deepeval | promptfoo |
+|---|---|---|---|
+| q1 | 0.00 / 0.33 / 0.00 / 1.00 / 1.00 / 0.00 | 1.00 / 1.00 / – / – / – / – | 0.67 / 0.60 / – / – / – / – |
+| q2 | 1.00 / 1.00 / 1.00 / 0.50 / 1.00 / 0.00 | 1.00 / 1.00 / – / – / – / – | 0.00 / 0.20 / – / – / – / – |
+| q3 | 0.00 / 0.00 / 0.00 / 0.50 / 0.00 / 0.00 | 0.00 / 1.00 / – / – / – / – | 0.00 / 0.00 / – / – / – / – |
+| q4 | 0.50 / 0.33 / 0.00 / 1.00 / 1.00 / 0.00 | 0.50 / 0.33 / – / – / – / – | 0.33 / 0.20 / – / – / – / – |
+| q5 | 1.00 / 1.00 / 1.00 / 1.00 / 1.00 / 0.50 | – / 1.00 / – / – / – / – | 0.33 / 0.20 / – / – / – / – |
+| q6 | 0.00 / 0.33 / 0.00 / 1.00 / 1.00 / 1.00 | 1.00 / 0.83 / – / – / – / – | 0.00 / 0.40 / – / – / – / – |
+| q7 | 0.00 / 1.00 / 1.00 / 1.00 / 1.00 / 1.00 | 0.00 / 1.00 / – / – / – / – | 0.00 / 0.40 / – / – / – / – |
+| q8 | 0.00 / 0.00 / 1.00 / 1.00 / 1.00 / 0.00 | 0.00 / 0.00 / – / – / – / – | 0.00 / 0.00 / – / – / – / – |
+
+## 2. Cobertura do contexto por pergunta (palavras (ruim) / vetor (bom) / BM25 / árvore / agêntico / grafo)
+
+| Pergunta | ragas | deepeval | promptfoo |
+|---|---|---|---|
+| q1 | 0.50 / 1.00 / 0.50 / 1.00 / 1.00 / 0.50 | 0.00 / 1.00 / – / – / – / – | 0.50 / 1.00 / – / – / – / – |
+| q2 | 1.00 / 1.00 / 1.00 / 1.00 / 1.00 / 0.00 | 1.00 / 1.00 / – / – / – / – | – / – / – / – / – / – |
+| q3 | 0.00 / 0.50 / 0.50 / 1.00 / 0.50 / 0.00 | 0.00 / 0.50 / – / – / – / – | 0.00 / 0.50 / – / – / – / – |
+| q4 | 1.00 / 1.00 / 0.00 / 1.00 / 1.00 / 0.00 | 1.00 / 1.00 / – / – / – / – | – / 1.00 / – / – / – / – |
+| q5 | 1.00 / 1.00 / 1.00 / 1.00 / 1.00 / 1.00 | 1.00 / 1.00 / – / – / – / – | 1.00 / – / – / – / – / – |
+| q6 | 0.67 / 1.00 / 0.67 / 1.00 / 1.00 / 0.67 | 0.33 / 1.00 / – / – / – / – | 0.33 / 0.67 / – / – / – / – |
+| q7 | 0.00 / 1.00 / 1.00 / 0.33 / 0.33 / 1.00 | 0.00 / 1.00 / – / – / – / – | – / 1.00 / – / – / – / – |
+| q8 | 0.50 / 0.50 / 1.00 / 1.00 / 1.00 / 0.50 | 0.00 / 0.00 / – / – / – / – | 0.00 / 0.50 / – / – / – / – |
 
 ## 3. O que cada RAG respondeu
 
@@ -69,57 +73,89 @@
 
 Gabarito: A bomba da Aurora K2 é de 15 bar e a máquina pesa 4,2 kg.
 
-- **bom** (trechos wiki-05, faq-10, manual-01): A cafeteira Aurora K2 possui uma bomba de 15 bar. O peso do aparelho é de 4,2 kg.
-- **ruim** (trechos wiki-05, faq-10): A pressão da bomba da Aurora K2 é de 15 bar. Não encontrei essa informação nas fontes disponíveis sobre o peso dela.
+- **palavras (ruim)** (trechos wiki-05, faq-10): A pressão da bomba da Aurora K2 é de 15 bar. Não encontrei essa informação nas fontes disponíveis sobre o peso dela.
+- **vetor (bom)** (trechos wiki-05, faq-10, manual-01): A cafeteira Aurora K2 possui uma bomba de 15 bar. O peso do aparelho é de 4,2 kg.
+- **BM25** (trechos manual-09, wiki-05, faq-10): A Aurora K2 possui uma bomba de 15 bar. Não encontrei essa informação nas fontes disponíveis sobre o peso do equipamento.
+- **árvore** (trechos manual-01): A Aurora K2 possui uma bomba de 15 bar e pesa 4,2 kg.
+- **agêntico** (trechos manual-01): A Aurora K2 possui uma bomba de 15 bar e pesa 4,2 kg.
+- **grafo** (trechos faq-10, manual-09, wiki-04): A Aurora K2 possui uma bomba de 15 bar. Não encontrei essa informação nas fontes disponíveis sobre o peso do equipamento.
 
 ### q2. A cada quantas extrações devo descalcificar a Aurora K2 se a água da minha cidade for dura?
 
 Gabarito: Com água dura, a recomendação é descalcificar a cada 150 extrações, em vez das 300 do manual.
 
-- **bom** (trechos faq-07, manual-04, wiki-05): Água dura acelera o acúmulo de calcário e recomendamos usar água filtrada e descalcificar a cada 150 extrações em vez de 300.
-- **ruim** (trechos faq-07, manual-04): Se a água da sua cidade for dura, recomendamos descalcificar a cada 150 extrações em vez de 300. Água dura acelera o acúmulo de calcário, e danos por calcário não são cobertos pela garantia.
+- **palavras (ruim)** (trechos faq-07, manual-04): Se a água da sua cidade for dura, recomendamos descalcificar a cada 150 extrações em vez de 300. Água dura acelera o acúmulo de calcário, e danos por calcário não são cobertos pela garantia.
+- **vetor (bom)** (trechos faq-07, manual-04, wiki-05): Água dura acelera o acúmulo de calcário e recomendamos usar água filtrada e descalcificar a cada 150 extrações em vez de 300.
+- **BM25** (trechos faq-07, manual-04, manual-06): Se a água da sua cidade for dura, recomendamos descalcificar a cada 150 extrações em vez de 300.
+- **árvore** (trechos manual-04, faq-07): Se a água da sua cidade for dura, recomendamos descalcificar a cada 150 extrações em vez de 300.
+- **agêntico** (trechos faq-07, manual-04): Recomendamos descalcificar a cada 150 extrações em vez de 300 se a água da sua cidade for dura. Isso ocorre porque a água dura acelera o acúmulo de calcário.
+- **grafo** (trechos manual-04, wiki-04, manual-06): Descalcifique a cada 300 extrações ou quando a luz indicadora piscar em vermelho. A garantia não cobre danos por obstrução por água com alto teor de calcário.
 
 ### q3. Quanto tempo de garantia eu tenho na Aurora K2?
 
 Gabarito: A garantia padrão é de 12 meses. Quem cadastra a máquina no site em até 30 dias ganha mais 12 meses, totalizando 24 meses.
 
-- **bom** (trechos manual-06, faq-02, faq-05): A Aurora K2 tem garantia legal e contratual de 12 meses contra defeitos de fabricação, contados a partir da data da nota fiscal.
-- **ruim** (trechos manual-01, wiki-05): Não encontrei essa informação nas fontes disponíveis.
+- **palavras (ruim)** (trechos manual-01, wiki-05): Não encontrei essa informação nas fontes disponíveis.
+- **vetor (bom)** (trechos manual-06, faq-02, faq-05): A Aurora K2 tem garantia legal e contratual de 12 meses contra defeitos de fabricação, contados a partir da data da nota fiscal.
+- **BM25** (trechos faq-02, manual-06, manual-08): A Aurora K2 tem garantia legal e contratual de 12 meses contra defeitos de fabricação, contados a partir da data da nota fiscal.
+- **árvore** (trechos manual-06, faq-04): A Aurora K2 possui garantia legal e contratual de 12 meses contra defeitos de fabricação. Ao cadastrar a máquina no site da Caffeo em até 30 dias após a compra, você ganha 12 meses adicionais, totalizando 24 meses de garantia.
+- **agêntico** (trechos manual-06): A Aurora K2 tem garantia legal e contratual de 12 meses contra defeitos de fabricação, contados a partir da data da nota fiscal.
+- **grafo** (trechos wiki-04, manual-04, wiki-09): Não encontrei essa informação nas fontes disponíveis.
 
 ### q4. Quem fundou a Caffeo Brasil e quem a preside hoje?
 
 Gabarito: A Caffeo Brasil foi fundada por Helena Brandt e Rogério Tancredi. Helena Brandt é a presidente desde a fundação.
 
-- **bom** (trechos wiki-01, faq-08, wiki-02): A Caffeo Brasil foi fundada por Helena Brandt e Rogério Tancredi. Helena Brandt é a presidente desde a fundação.
-- **ruim** (trechos faq-04, wiki-02): A empresa foi fundada por Helena Brandt e Rogério Tancredi. Helena Brandt é a presidente desde a fundação.
+- **palavras (ruim)** (trechos faq-04, wiki-02): A empresa foi fundada por Helena Brandt e Rogério Tancredi. Helena Brandt é a presidente desde a fundação.
+- **vetor (bom)** (trechos wiki-01, faq-08, wiki-02): A Caffeo Brasil foi fundada por Helena Brandt e Rogério Tancredi. Helena Brandt é a presidente desde a fundação.
+- **BM25** (trechos faq-04, faq-08, wiki-01): Não encontrei essa informação nas fontes disponíveis.
+- **árvore** (trechos wiki-02): A Caffeo Brasil foi fundada por Helena Brandt e Rogério Tancredi. Helena Brandt é a presidente desde a fundação.
+- **agêntico** (trechos wiki-02): A Caffeo Brasil foi fundada por Helena Brandt e Rogério Tancredi. Helena Brandt é a presidente desde a fundação.
+- **grafo** (trechos faq-04, wiki-06, wiki-07): Não encontrei essa informação nas fontes disponíveis.
 
 ### q5. Por que a Aurora K1 passou por recall e quantas unidades foram afetadas?
 
 Gabarito: O recall de agosto de 2019 foi por falha no anel de vedação da caldeira, que podia vazar vapor. Foram 18.000 unidades.
 
-- **bom** (trechos wiki-04, wiki-03, faq-10): Em agosto de 2019, a Caffeo fez um recall voluntário da Aurora K1 devido a uma falha no anel de vedação da caldeira, que podia vazar vapor. O total de unidades afetadas foi de 18.000. Nenhum ferimento foi registrado em decorrência do problema.
-- **ruim** (trechos wiki-04, wiki-05): Em agosto de 2019, a Caffeo fez um recall voluntário da Aurora K1 devido a uma falha no anel de vedação da caldeira, que podia vazar vapor. No total, 18.000 unidades foram afetadas por esse problema.
+- **palavras (ruim)** (trechos wiki-04, wiki-05): Em agosto de 2019, a Caffeo fez um recall voluntário da Aurora K1 devido a uma falha no anel de vedação da caldeira, que podia vazar vapor. No total, 18.000 unidades foram afetadas por esse problema.
+- **vetor (bom)** (trechos wiki-04, wiki-03, faq-10): Em agosto de 2019, a Caffeo fez um recall voluntário da Aurora K1 devido a uma falha no anel de vedação da caldeira, que podia vazar vapor. O total de unidades afetadas foi de 18.000. Nenhum ferimento foi registrado em decorrência do problema.
+- **BM25** (trechos wiki-04, wiki-05, wiki-03): A Aurora K1 passou por um recall devido a uma falha no anel de vedação da caldeira, que podia vazar vapor. Foram afetadas 18.000 unidades.
+- **árvore** (trechos wiki-04): A Aurora K1 passou por um recall devido a uma falha no anel de vedação da caldeira, que podia vazar vapor. Foram afetadas 18.000 unidades.
+- **agêntico** (trechos wiki-04): A Aurora K1 passou por um recall devido a uma falha no anel de vedação da caldeira, que podia vazar vapor. Foram afetadas 18.000 unidades.
+- **grafo** (trechos wiki-05, wiki-04, manual-04): A Aurora K1 passou por um recall devido a uma falha no anel de vedação da caldeira, que podia vazar vapor. Foram afetadas 18.000 unidades.
 
 ### q6. Posso usar vinagre para descalcificar e a máquina aceita cápsulas?
 
 Gabarito: Não aos dois. Vinagre danifica a vedação de silicone da caldeira. A máquina só funciona com café moído e não existe adaptador oficial para cápsulas.
 
-- **bom** (trechos manual-04, faq-01, faq-02): Não, você nunca deve usar vinagre para descalcificar, pois ele danifica a vedação de silicone da caldeira. Além disso, a Aurora K2 funciona apenas com café moído e não aceita cápsulas.
-- **ruim** (trechos faq-02, wiki-02): Não encontrei essa informação nas fontes disponíveis.
+- **palavras (ruim)** (trechos faq-02, wiki-02): Não encontrei essa informação nas fontes disponíveis.
+- **vetor (bom)** (trechos manual-04, faq-01, faq-02): Não, você nunca deve usar vinagre para descalcificar, pois ele danifica a vedação de silicone da caldeira. Além disso, a Aurora K2 funciona apenas com café moído e não aceita cápsulas.
+- **BM25** (trechos faq-02, faq-07, faq-09): Não encontrei essa informação nas fontes disponíveis. A Aurora K2 funciona apenas com café moído e não existe adaptador oficial para cápsulas.
+- **árvore** (trechos manual-04, faq-02): Nunca use vinagre, pois ele danifica a vedação de silicone da caldeira. A Aurora K2 funciona apenas com café moído e não aceita cápsulas.
+- **agêntico** (trechos manual-04, faq-02): Nunca use vinagre, pois ele danifica a vedação de silicone da caldeira. A Aurora K2 funciona apenas com café moído e não aceita cápsulas.
+- **grafo** (trechos manual-04, manual-05, manual-06): Nunca use vinagre, pois ele danifica a vedação de silicone da caldeira. Não encontrei essa informação nas fontes disponíveis sobre a aceitação de cápsulas.
 
 ### q7. O que significa o código de erro E2 e como resolver?
 
 Gabarito: E2 é pressão insuficiente. A causa comum é moagem grossa demais. A solução é usar moagem fina, parecida com açúcar refinado.
 
-- **bom** (trechos manual-09, faq-06, faq-01): O código de erro E2 significa pressão insuficiente causada por moagem grossa demais, que deixa o café aguado. Para resolver, verifique a moagem e utilize uma moagem fina, parecida com açúcar refinado, evitando que seja grossa demais.
-- **ruim** (trechos manual-01, manual-03): Não encontrei essa informação nas fontes disponíveis.
+- **palavras (ruim)** (trechos manual-01, manual-03): Não encontrei essa informação nas fontes disponíveis.
+- **vetor (bom)** (trechos manual-09, faq-06, faq-01): O código de erro E2 significa pressão insuficiente causada por moagem grossa demais, que deixa o café aguado. Para resolver, verifique a moagem e utilize uma moagem fina, parecida com açúcar refinado, evitando que seja grossa demais.
+- **BM25** (trechos faq-06, manual-09, faq-01): O código de erro E2 significa pressão insuficiente. Para resolver, verifique a moagem, utilizando uma moagem fina, parecida com açúcar refinado.
+- **árvore** (trechos manual-09): O código de erro E2 significa pressão insuficiente. Para resolver, verifique a moagem.
+- **agêntico** (trechos manual-09): O código de erro E2 significa pressão insuficiente. Para resolver, verifique a moagem.
+- **grafo** (trechos manual-09, faq-06): O código de erro E2 significa pressão insuficiente. Para resolver, verifique a moagem, pois uma moagem grossa demais causa esse erro.
 
 ### q8. Qual é a capacidade do reservatório de água da Aurora K3?
 
 Gabarito: Não há essa informação. A Aurora K3 foi anunciada para 2027 e nenhuma especificação foi divulgada.
 
-- **bom** (trechos wiki-05, faq-10, manual-01): Não encontrei essa informação nas fontes disponíveis.
-- **ruim** (trechos faq-10, manual-01): Não encontrei essa informação nas fontes disponíveis.
+- **palavras (ruim)** (trechos faq-10, manual-01): Não encontrei essa informação nas fontes disponíveis.
+- **vetor (bom)** (trechos wiki-05, faq-10, manual-01): Não encontrei essa informação nas fontes disponíveis.
+- **BM25** (trechos wiki-09, manual-05, manual-01): Não encontrei essa informação nas fontes disponíveis.
+- **árvore** (trechos wiki-09): Não encontrei essa informação nas fontes disponíveis.
+- **agêntico** (trechos wiki-09): Não encontrei essa informação nas fontes disponíveis.
+- **grafo** (trechos faq-10, wiki-04, faq-07): Não encontrei essa informação nas fontes disponíveis.
 
 ## 4. Motivos dados pelo juiz (DeepEval e Promptfoo devolvem; Ragas não)
 

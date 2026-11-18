@@ -1,0 +1,138 @@
+[
+  {
+    "modo": "grafo",
+    "id": "q1",
+    "ferramenta": "ragas",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.5
+    },
+    "detalhes": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q2",
+    "ferramenta": "ragas",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.758,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "detalhes": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q3",
+    "ferramenta": "ragas",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "detalhes": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q4",
+    "ferramenta": "ragas",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "detalhes": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q5",
+    "ferramenta": "ragas",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.999,
+      "context_precision": 0.5,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q6",
+    "ferramenta": "ragas",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 1.0,
+      "context_recall": 0.667
+    },
+    "detalhes": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q7",
+    "ferramenta": "ragas",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.996,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q8",
+    "ferramenta": "ragas",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.5
+    },
+    "detalhes": {
+      "faithfulness": null,
+      "answer_relevancy": null,
+      "context_precision": null,
+      "context_recall": null
+    }
+  }
+]
