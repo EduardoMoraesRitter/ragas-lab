@@ -10,7 +10,9 @@ import time
 
 os.environ.setdefault("DEEPEVAL_TELEMETRY_OPT_OUT", "YES")
 
-from comum import API_KEY, BASE_URL, LLM_MODEL, PAUSA_S, carregar_respostas, salvar_resultado  # noqa: E402
+import json  # noqa: E402
+
+from comum import API_KEY, BASE_URL, LLM_MODEL, PAUSA_S, RAIZ, SUFIXO, carregar_respostas, salvar_resultado  # noqa: E402
 
 from deepeval.metrics import (  # noqa: E402
     AnswerRelevancyMetric,
@@ -39,6 +41,12 @@ def main():
         "context_recall": lambda: ContextualRecallMetric(**comuns),
     }
 
+    # Retomada: se o arquivo de saída já existe, reaproveita as notas válidas e só refaz as vazias (ex.: 429 de cota)
+    anteriores = {}
+    arq_saida = RAIZ / "results" / f"deepeval{SUFIXO}.json"
+    if arq_saida.exists():
+        anteriores = {(x["modo"], x["id"]): x for x in json.loads(arq_saida.read_text(encoding="utf-8"))}
+
     saida = []
     t0 = time.time()
     for r in carregar_respostas():
@@ -48,8 +56,10 @@ def main():
             expected_output=r["referencia"],
             retrieval_context=r["contextos"],
         )
-        linha = {"modo": r["modo"], "id": r["id"], "ferramenta": "deepeval", "scores": {}, "detalhes": {}}
+        linha = anteriores.get((r["modo"], r["id"])) or {"modo": r["modo"], "id": r["id"], "ferramenta": "deepeval", "scores": {}, "detalhes": {}}
         for nome, fabrica in fabricas.items():
+            if linha["scores"].get(nome) is not None:
+                continue
             m = fabrica()
             try:
                 m.measure(caso)

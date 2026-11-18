@@ -17,17 +17,25 @@ Pedido do Eduardo em 18/11/2026: melhorar o design no estilo do site, publicar o
 
 ## Checklist
 
-- [ ] 1. ragas-lab: README público (o que é, resultado, como rodar, aviso de dado fictício); tirar `results/promptfoo-view.log` do git
-- [ ] 2. ragas-lab: atualizar RELATORIO.md com as técnicas de busca (BM25, árvore, vetor, grafo, agêntica)
+- [x] 1. ragas-lab: README público (o que é, resultado, como rodar, aviso de dado fictício); tirar `results/promptfoo-view.log` do git
+- [x] 2. ragas-lab: atualizar RELATORIO.md com as técnicas de busca (BM25, árvore, vetor, grafo, agêntica)
 - [ ] 3. Criar repositório público `EduardoMoraesRitter/ragas-lab` e fazer push
-- [ ] 4. Site: `src/data/ragas-lab/resultados.json` gerado por script a partir de `results/*.json` e `data/respostas-*.json`
-- [ ] 5. Site: página `src/pages/ragas-lab.astro` no estilo do Lab Pix: gráficos de barras por técnica, ranking, tabela por pergunta com motivo do juiz, link para o repositório
-- [ ] 6. Site: textos em `pt.json` e `en.json`; item "Lab RAG" no menu
-- [ ] 7. `npm run build` local sem erro; conferir a página em tema escuro, claro e em celular
+- [x] 4. Site: `src/data/ragas-lab/resultados.json` gerado por script a partir de `results/*.json` e `data/respostas-*.json`
+- [x] 5. Site: página `src/pages/ragas-lab.astro` no estilo do Lab Pix: gráficos de barras por técnica, ranking, tabela por pergunta com motivo do juiz, link para o repositório
+- [x] 6. Site: textos em `pt.json` e `en.json`; item "Lab RAG" no menu
+- [x] 7. `npm run build` local sem erro; conferir a página em tema escuro, claro e em celular
 - [ ] 8. Commit no `main` do site, push, acompanhar o Actions, abrir a página no ar
 - [ ] 9. ragas-lab: `homepageUrl` do repositório apontando para a página do site
 
 ## Decisões em aberto
 
-- Rodar DeepEval e Promptfoo nas 4 técnicas novas antes de publicar? Sem isso, a página mostra essas técnicas só com Ragas.
+- [x] Rodar DeepEval nas 4 técnicas novas antes de publicar: decidido pelo Eduardo em 18/11/2026. Juiz gemini-3.5-flash-lite, o mesmo das rodadas antigas do DeepEval.
 - Nome no menu: "Lab RAG" (sugestão).
+
+## Andamento (18/11/2026, 20h)
+
+- Itens 1, 2, 4 a 7 prontos e commitados localmente. Nada publicado.
+- Item 5: paleta dos avaliadores validada com validate_palette.js nos dois temas (a do Lab Pix falhava: azul-aço e lavanda quase iguais). Títulos curtos para não quebrar a linha do cabeçalho.
+- Item 7: build sem erro; conferido no Chrome em tema escuro, claro, celular de 390 px (sem rolagem lateral) e em inglês.
+- DeepEval nas técnicas novas: 1ª tentativa deu 429 em todas as chamadas (cota diária de 500 do gemini-3.5-flash-lite). Retomada agendada para 05:05 de 19/11, com o mesmo juiz. O script agora retoma só as notas vazias.
+- Falta: DeepEval, reexportar os dados para o site, itens 3, 8 e 9.

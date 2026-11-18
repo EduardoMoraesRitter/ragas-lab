@@ -8,3 +8,4 @@ node_modules/
 results/promptfoo-raw*.json
 results/promptfoo.log
 results/rodada-*.log
+results/*.log

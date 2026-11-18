@@ -124,7 +124,7 @@ Zero em dinheiro. Tudo rodou no nível gratuito do Gemini. O preço foi tempo: c
 ## 8. Como rodar de novo
 
 ```
-.venv\Scripts\python src\rag.py ambos
+.venv\Scripts\python src\rag.py todas
 .venv\Scripts\python src\eval_ragas.py
 .venv\Scripts\python src\eval_deepeval.py
 .venv\Scripts\python src\promptfoo_config.py gerar
@@ -135,3 +135,41 @@ npx promptfoo eval -c promptfooconfig.yaml --env-file .env --output results\prom
 ```
 
 Chave e modelos ficam em `.env` (não versionado). `PAUSA_S` controla a pausa entre chamadas.
+
+## 9. Segunda rodada: técnicas de busca
+
+Depois da primeira rodada, a pergunta mudou: em vez de "bom contra ruim", qual técnica de busca traz o trecho certo? Só a busca muda. Gerador, corpus, perguntas e juiz ficam iguais.
+
+| Técnica | Função em `src/rag.py` | Como busca | LLM na busca |
+|---|---|---|---|
+| Árvore (estilo PageIndex) | `buscar_arvore` | Índice com título e resumo de 1 frase por seção, feito uma vez (`data/arvore.json`). O LLM lê o sumário e escolhe até 3 seções. | 1 por pergunta |
+| Agêntica | `buscar_agentico` | O LLM usa as ferramentas listar, grep e ler, em até 6 passos, e devolve até 3 seções. | 2 a 7 por pergunta |
+| Vetor | `buscar_bom` | Embedding, 3 trechos mais parecidos. | 0 |
+| BM25 | `buscar_bm25` | BM25 Okapi sobre palavras sem stopwords, 3 trechos. | 0 |
+| Grafo (GraphRAG) | `buscar_grafo` | O LLM extraiu triplas entidade-relação-entidade, uma vez (`data/grafo.json`). Grafo em memória com networkx, sem Neo4j. A busca acha as entidades da pergunta, anda 1 salto e devolve as seções das arestas tocadas. | 0 |
+| Palavras (piso) | `buscar_ruim` | O antigo "RAG ruim". | 0 |
+
+### Resultado com Ragas (média das 8 perguntas)
+
+| Técnica | Precisão do contexto | Cobertura do contexto | Fidelidade | Relevância |
+|---|---|---|---|---|
+| Árvore | 0,88 | 0,92 | 0,79 | 0,78 |
+| Agêntica | 0,88 | 0,85 | 0,88 | 0,78 |
+| Vetor | 0,50 | 0,88 | 0,98 | 0,80 |
+| BM25 | 0,50 | 0,71 | 1,00 | 0,57 |
+| Grafo | 0,31 | 0,46 | 1,00 | 0,34 |
+| Palavras (piso) | 0,31 | 0,58 | 0,72 | 0,42 |
+
+Juiz: Gemini 3.1 Flash Lite nas quatro técnicas novas; Gemini 3.5 Flash Lite em vetor e piso.
+
+### Leitura
+
+- **A árvore venceu.** O LLM lê o sumário e aponta a seção certa, e quase nunca traz trecho sobrando. Este corpus favorece a árvore: seções curtas, com título claro e um assunto cada.
+- **A agêntica chega perto**, mas gasta de 2 a 7 chamadas de LLM por pergunta. A árvore gasta 1.
+- **O vetor acha a resposta, mas traz trecho sobrando.** Cobertura alta, precisão média: dos 3 trechos, 1 ou 2 sobram.
+- **O BM25 perde quando a palavra muda de forma.** "Pesa" não casa com "peso", nem "descalcificar" com "descalcificação". Sem stemming, a palavra exata falha.
+- **O grafo ficou no piso.** 30 trechos geram poucas relações úteis. A extração criou 92 nós, e "Aurora K2" virou um nó ligado a quase tudo. O grafo precisa de dado com muitas entidades ligadas entre si.
+
+### DeepEval nas técnicas novas
+
+Pendente. A primeira tentativa, em 18/11/2026, bateu no limite diário do Gemini 3.5 Flash Lite (500 pedidos) e devolveu só erros 429. A retomada está agendada para depois da renovação da cota, com o mesmo juiz das rodadas antigas do DeepEval.
