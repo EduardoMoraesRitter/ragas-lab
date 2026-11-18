@@ -3,7 +3,7 @@ results/promptfoo-raw.json do Promptfoo para o mesmo formato dos outros.
 
 Uso:
   python src/promptfoo_config.py gerar      -> promptfooconfig.yaml
-  npx promptfoo eval -c promptfooconfig.yaml --output results/promptfoo-raw.json --no-cache
+  npx promptfoo eval -c promptfooconfig.yaml --env-file .env --output results/promptfoo-raw.json --no-cache
   python src/promptfoo_config.py converter  -> results/promptfoo.json
 """
 from __future__ import annotations
@@ -11,7 +11,7 @@ from __future__ import annotations
 import json
 import sys
 
-from comum import API_KEY, BASE_URL, EMBED_MODEL, LLM_MODEL, RAIZ, carregar_respostas, salvar_resultado
+from comum import BASE_URL, EMBED_MODEL, LLM_MODEL, RAIZ, carregar_respostas, salvar_resultado
 
 MAPA = {
     "context-faithfulness": "faithfulness",
@@ -50,9 +50,9 @@ def gerar():
             "options": {
                 "provider": {
                     "text": {"id": f"openai:chat:{LLM_MODEL}",
-                             "config": {"apiBaseUrl": BASE_URL.rstrip("/"), "apiKey": API_KEY, "temperature": 0}},
+                             "config": {"apiBaseUrl": BASE_URL.rstrip("/"), "apiKey": "{{env.OPENAI_API_KEY}}", "temperature": 0}},
                     "embedding": {"id": f"openai:embedding:{EMBED_MODEL}",
-                                  "config": {"apiBaseUrl": BASE_URL.rstrip("/"), "apiKey": API_KEY}},
+                                  "config": {"apiBaseUrl": BASE_URL.rstrip("/"), "apiKey": "{{env.OPENAI_API_KEY}}"}},
                 }
             }
         },
