@@ -17,15 +17,21 @@ EMBED_MODEL = os.environ["EMBED_MODEL"]
 PAUSA_S = float(os.environ.get("PAUSA_S", "2"))
 
 
+TECNICAS = os.environ.get("TECNICAS", "bom,ruim").split(",")
+SUFIXO = "" if os.environ.get("TECNICAS") is None else "-" + "-".join(TECNICAS)
+
+
 def carregar_respostas() -> list[dict]:
+    """Respostas das técnicas em TECNICAS (env; padrão bom,ruim), concatenadas."""
     linhas = []
-    for modo in ("bom", "ruim"):
+    for modo in TECNICAS:
         arq = RAIZ / "data" / f"respostas-{modo}.json"
         linhas += json.loads(arq.read_text(encoding="utf-8"))
     return linhas
 
 
 def salvar_resultado(nome: str, linhas: list[dict]) -> Path:
-    destino = RAIZ / "results" / f"{nome}.json"
+    """results/<ferramenta><sufixo>.json; sufixo = técnicas avaliadas (vazio no padrão bom,ruim)."""
+    destino = RAIZ / "results" / f"{nome}{SUFIXO}.json"
     destino.write_text(json.dumps(linhas, ensure_ascii=False, indent=2), encoding="utf-8")
     return destino

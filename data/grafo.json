@@ -1,0 +1,452 @@
+[
+ {
+  "s": "luz vermelha piscando",
+  "r": "indica",
+  "o": "descalcificação",
+  "id": "faq-01"
+ },
+ {
+  "s": "descalcificação",
+  "r": "restaura",
+  "o": "luz normal",
+  "id": "faq-01"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "aceita apenas",
+  "o": "café moído",
+  "id": "faq-02"
+ },
+ {
+  "s": "adaptador de terceiros",
+  "r": "cancela",
+  "o": "garantia",
+  "id": "faq-02"
+ },
+ {
+  "s": "Caffeo",
+  "r": "prazo de devolução",
+  "o": "7 dias",
+  "id": "faq-03"
+ },
+ {
+  "s": "cadastro no site Caffeo",
+  "r": "estende",
+  "o": "garantia",
+  "id": "faq-04"
+ },
+ {
+  "s": "garantia",
+  "r": "totaliza",
+  "o": "24 meses",
+  "id": "faq-04"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "não possui",
+  "o": "conectividade",
+  "id": "faq-05"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "controlada por",
+  "o": "botão giratório",
+  "id": "faq-05"
+ },
+ {
+  "s": "moagem grossa",
+  "r": "causa",
+  "o": "erro E2",
+  "id": "faq-06"
+ },
+ {
+  "s": "moagem fina",
+  "r": "causa",
+  "o": "entupimento do filtro",
+  "id": "faq-06"
+ },
+ {
+  "s": "água dura",
+  "r": "acelera",
+  "o": "acúmulo de calcário",
+  "id": "faq-07"
+ },
+ {
+  "s": "danos por calcário",
+  "r": "não são cobertos por",
+  "o": "garantia",
+  "id": "faq-07"
+ },
+ {
+  "s": "Caffeo",
+  "r": "possui",
+  "o": "46 assistências",
+  "id": "faq-08"
+ },
+ {
+  "s": "visita de diagnóstico",
+  "r": "custa",
+  "o": "R$ 90",
+  "id": "faq-08"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "não possui",
+  "o": "vaporizador de leite",
+  "id": "faq-09"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "possui",
+  "o": "bomba 15 bar",
+  "id": "faq-10"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "possui",
+  "o": "reservatório 1,4 litro",
+  "id": "faq-10"
+ },
+ {
+  "s": "Aurora K1",
+  "r": "possui peças até",
+  "o": "2027",
+  "id": "faq-10"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "tipo",
+  "o": "cafeteira",
+  "id": "manual-01"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "bomba",
+  "o": "15 bar",
+  "id": "manual-01"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "potência",
+  "o": "1350 W",
+  "id": "manual-01"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "tensão",
+  "o": "bivolt",
+  "id": "manual-01"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "reservatório",
+  "o": "1,4 litro",
+  "id": "manual-01"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "peso",
+  "o": "4,2 kg",
+  "id": "manual-01"
+ },
+ {
+  "s": "aquecimento",
+  "r": "duração",
+  "o": "40 segundos",
+  "id": "manual-02"
+ },
+ {
+  "s": "luz indicadora",
+  "r": "estado",
+  "o": "laranja (aquecendo)",
+  "id": "manual-02"
+ },
+ {
+  "s": "luz indicadora",
+  "r": "estado",
+  "o": "verde (pronta)",
+  "id": "manual-02"
+ },
+ {
+  "s": "café moído",
+  "r": "quantidade",
+  "o": "7g a 9g",
+  "id": "manual-03"
+ },
+ {
+  "s": "botão uma xícara",
+  "r": "volume",
+  "o": "30 ml",
+  "id": "manual-03"
+ },
+ {
+  "s": "botão duas xícaras",
+  "r": "volume",
+  "o": "60 ml",
+  "id": "manual-03"
+ },
+ {
+  "s": "descalcificação",
+  "r": "frequência",
+  "o": "300 extrações",
+  "id": "manual-04"
+ },
+ {
+  "s": "descalcificação",
+  "r": "gatilho",
+  "o": "luz vermelha piscando",
+  "id": "manual-04"
+ },
+ {
+  "s": "descalcificante",
+  "r": "permitido",
+  "o": "Aurora Clean",
+  "id": "manual-04"
+ },
+ {
+  "s": "descalcificante",
+  "r": "permitido",
+  "o": "ácido cítrico 2%",
+  "id": "manual-04"
+ },
+ {
+  "s": "vinagre",
+  "r": "efeito",
+  "o": "danifica vedação",
+  "id": "manual-04"
+ },
+ {
+  "s": "peças",
+  "r": "proibição",
+  "o": "máquina de lavar louça",
+  "id": "manual-05"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "garantia",
+  "o": "12 meses",
+  "id": "manual-06"
+ },
+ {
+  "s": "garantia",
+  "r": "exclusão",
+  "o": "queda",
+  "id": "manual-06"
+ },
+ {
+  "s": "garantia",
+  "r": "exclusão",
+  "o": "descalcificante inadequado",
+  "id": "manual-06"
+ },
+ {
+  "s": "saída de vapor",
+  "r": "temperatura",
+  "o": "95 °C",
+  "id": "manual-07"
+ },
+ {
+  "s": "modo de espera",
+  "r": "prazo",
+  "o": "9 minutos",
+  "id": "manual-08"
+ },
+ {
+  "s": "desligamento total",
+  "r": "prazo",
+  "o": "30 minutos",
+  "id": "manual-08"
+ },
+ {
+  "s": "erro E1",
+  "r": "causa",
+  "o": "reservatório vazio ou mal encaixado",
+  "id": "manual-09"
+ },
+ {
+  "s": "erro E2",
+  "r": "causa",
+  "o": "pressão insuficiente",
+  "id": "manual-09"
+ },
+ {
+  "s": "erro E3",
+  "r": "causa",
+  "o": "superaquecimento",
+  "id": "manual-09"
+ },
+ {
+  "s": "erro E4",
+  "r": "causa",
+  "o": "falha na bomba",
+  "id": "manual-09"
+ },
+ {
+  "s": "embalagem",
+  "r": "contém",
+  "o": "Aurora K2",
+  "id": "manual-10"
+ },
+ {
+  "s": "embalagem",
+  "r": "contém",
+  "o": "tamper de aço",
+  "id": "manual-10"
+ },
+ {
+  "s": "Caffeo Brasil",
+  "r": "fundada em",
+  "o": "2014",
+  "id": "wiki-01"
+ },
+ {
+  "s": "Caffeo Brasil",
+  "r": "localizada em",
+  "o": "Caxias do Sul",
+  "id": "wiki-01"
+ },
+ {
+  "s": "Caffeo Brasil",
+  "r": "iniciou fabricação de",
+  "o": "cafeteiras",
+  "id": "wiki-01"
+ },
+ {
+  "s": "Helena Brandt",
+  "r": "fundadora de",
+  "o": "Caffeo Brasil",
+  "id": "wiki-02"
+ },
+ {
+  "s": "Rogério Tancredi",
+  "r": "fundador de",
+  "o": "Caffeo Brasil",
+  "id": "wiki-02"
+ },
+ {
+  "s": "Helena Brandt",
+  "r": "presidente de",
+  "o": "Caffeo Brasil",
+  "id": "wiki-02"
+ },
+ {
+  "s": "Rogério Tancredi",
+  "r": "saiu de",
+  "o": "Caffeo Brasil",
+  "id": "wiki-02"
+ },
+ {
+  "s": "Aurora K1",
+  "r": "fabricante",
+  "o": "Caffeo Brasil",
+  "id": "wiki-03"
+ },
+ {
+  "s": "Aurora K1",
+  "r": "lançada em",
+  "o": "2017",
+  "id": "wiki-03"
+ },
+ {
+  "s": "Aurora K1",
+  "r": "descontinuada em",
+  "o": "2021",
+  "id": "wiki-03"
+ },
+ {
+  "s": "Caffeo Brasil",
+  "r": "recall de",
+  "o": "Aurora K1",
+  "id": "wiki-04"
+ },
+ {
+  "s": "Aurora K1",
+  "r": "falha",
+  "o": "anel de vedação",
+  "id": "wiki-04"
+ },
+ {
+  "s": "Recall Aurora K1",
+  "r": "custo",
+  "o": "R$ 2,1 milhões",
+  "id": "wiki-04"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "lançada em",
+  "o": "2021",
+  "id": "wiki-05"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "sucessora de",
+  "o": "Aurora K1",
+  "id": "wiki-05"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "vendas até 2025",
+  "o": "210.000 unidades",
+  "id": "wiki-05"
+ },
+ {
+  "s": "Fábrica Caffeo",
+  "r": "localizada em",
+  "o": "Caxias do Sul",
+  "id": "wiki-06"
+ },
+ {
+  "s": "Fábrica Caffeo",
+  "r": "funcionários",
+  "o": "340",
+  "id": "wiki-06"
+ },
+ {
+  "s": "Bombas",
+  "r": "origem",
+  "o": "Itália",
+  "id": "wiki-06"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "preço 2026",
+  "o": "R$ 1.299",
+  "id": "wiki-07"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "canal de venda",
+  "o": "site Caffeo",
+  "id": "wiki-07"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "prêmio",
+  "o": "Design Brasil 2022",
+  "id": "wiki-08"
+ },
+ {
+  "s": "Aurora K3",
+  "r": "desenvolvimento",
+  "o": "Caffeo Brasil",
+  "id": "wiki-09"
+ },
+ {
+  "s": "Aurora K3",
+  "r": "previsão lançamento",
+  "o": "2027",
+  "id": "wiki-09"
+ },
+ {
+  "s": "Aurora K2",
+  "r": "embalagem",
+  "o": "papelão reciclado",
+  "id": "wiki-10"
+ },
+ {
+  "s": "Caffeo Brasil",
+  "r": "serviço",
+  "o": "reciclagem de máquinas",
+  "id": "wiki-10"
+ }
+]

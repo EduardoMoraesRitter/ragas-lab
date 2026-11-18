@@ -10,6 +10,8 @@ from statistics import mean
 from comum import RAIZ
 
 FERRAMENTAS = ["ragas", "deepeval", "promptfoo"]
+ORDEM_TECNICAS = ["ruim", "bom", "bm25", "arvore", "agentico", "grafo"]
+NOME_TECNICA = {"ruim": "palavras (ruim)", "bom": "vetor (bom)", "bm25": "BM25", "arvore": "árvore", "agentico": "agêntico", "grafo": "grafo"}
 METRICAS = ["faithfulness", "answer_relevancy", "context_precision", "context_recall"]
 ROTULO = {
     "faithfulness": "Fidelidade",
@@ -26,43 +28,46 @@ def fmt(v):
 def main():
     dados = {}
     for f in FERRAMENTAS:
-        arq = RAIZ / "results" / f"{f}.json"
-        if arq.exists():
-            for linha in json.loads(arq.read_text(encoding="utf-8")):
+        for arq in sorted((RAIZ / "results").glob(f"{f}*.json")):
+            conteudo = json.loads(arq.read_text(encoding="utf-8"))
+            if not isinstance(conteudo, list):  # promptfoo-raw*.json é o bruto do Promptfoo
+                continue
+            for linha in conteudo:
                 dados[(f, linha["modo"], linha["id"])] = linha
+    modos = sorted({m for (_, m, _) in dados}, key=lambda m: (ORDEM_TECNICAS.index(m) if m in ORDEM_TECNICAS else 99, m))
     respostas = {}
-    for modo in ("bom", "ruim"):
+    for modo in modos:
         for r in json.loads((RAIZ / "data" / f"respostas-{modo}.json").read_text(encoding="utf-8")):
             respostas[(modo, r["id"])] = r
 
     out = ["# Tabelas geradas (src/relatorio.py)\n"]
 
     # 1. Média por ferramenta x modo x métrica
-    out.append("## 1. Média por ferramenta e por RAG\n")
-    out.append("| Ferramenta | RAG | " + " | ".join(ROTULO[m] for m in METRICAS) + " |")
+    out.append("## 1. Média por ferramenta e por técnica de busca\n")
+    out.append("| Ferramenta | Técnica | " + " | ".join(ROTULO[m] for m in METRICAS) + " |")
     out.append("|---|---|" + "---|" * len(METRICAS))
     for f in FERRAMENTAS:
-        for modo in ("bom", "ruim"):
+        for modo in modos:
             medias = []
             for m in METRICAS:
                 vals = [dados[(f, modo, q)]["scores"].get(m) for q in [f"q{i}" for i in range(1, 9)] if (f, modo, q) in dados]
                 vals = [v for v in vals if v is not None]
                 medias.append(mean(vals) if vals else None)
-            out.append(f"| {f} | {modo} | " + " | ".join(fmt(v) for v in medias) + " |")
+            if all(v is None for v in medias):
+                continue
+            out.append(f"| {f} | {NOME_TECNICA.get(modo, modo)} | " + " | ".join(fmt(v) for v in medias) + " |")
     out.append("")
 
     # 2. Por pergunta: as 3 ferramentas lado a lado, uma tabela por métrica
     for m in METRICAS:
-        out.append(f"## 2. {ROTULO[m]} por pergunta (bom / ruim)\n")
+        out.append(f"## 2. {ROTULO[m]} por pergunta (" + " / ".join(NOME_TECNICA.get(x, x) for x in modos) + ")\n")
         out.append("| Pergunta | " + " | ".join(FERRAMENTAS) + " |")
         out.append("|---|" + "---|" * len(FERRAMENTAS))
         for i in range(1, 9):
             q = f"q{i}"
             celulas = []
             for f in FERRAMENTAS:
-                b = dados.get((f, "bom", q), {}).get("scores", {}).get(m)
-                r = dados.get((f, "ruim", q), {}).get("scores", {}).get(m)
-                celulas.append(f"{fmt(b)} / {fmt(r)}")
+                celulas.append(" / ".join(fmt(dados.get((f, modo, q), {}).get("scores", {}).get(m)) for modo in modos))
             out.append(f"| {q} | " + " | ".join(celulas) + " |")
         out.append("")
 
@@ -70,18 +75,18 @@ def main():
     out.append("## 3. O que cada RAG respondeu\n")
     for i in range(1, 9):
         q = f"q{i}"
-        p = respostas[("bom", q)]
+        p = respostas[(modos[0], q)]
         out.append(f"### {q}. {p['pergunta']}\n")
         out.append(f"Gabarito: {p['referencia']}\n")
-        for modo in ("bom", "ruim"):
+        for modo in modos:
             r = respostas[(modo, q)]
-            out.append(f"- **{modo}** (trechos {', '.join(r['contextos_ids'])}): {r['resposta']}")
+            out.append(f"- **{NOME_TECNICA.get(modo, modo)}** (trechos {', '.join(r['contextos_ids'])}): {r['resposta']}")
         out.append("")
 
     # 4. Motivos dados pelos juízes (quando a ferramenta devolve)
     out.append("## 4. Motivos dados pelo juiz (DeepEval e Promptfoo devolvem; Ragas não)\n")
     for f in ("deepeval", "promptfoo"):
-        for modo in ("bom", "ruim"):
+        for modo in modos:
             for i in range(1, 9):
                 q = f"q{i}"
                 d = dados.get((f, modo, q))

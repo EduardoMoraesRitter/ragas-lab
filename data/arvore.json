@@ -1,0 +1,158 @@
+{
+  "faq": [
+    {
+      "id": "faq-01",
+      "titulo": "A luz está piscando em vermelho. O que faço?",
+      "resumo": "Explica que a luz vermelha piscando indica a necessidade de descalcificação e orienta a seguir o manual."
+    },
+    {
+      "id": "faq-02",
+      "titulo": "Posso usar cápsulas na Aurora K2?",
+      "resumo": "Informa que a Aurora K2 utiliza apenas café moído e que o uso de adaptadores de cápsulas anula a garantia."
+    },
+    {
+      "id": "faq-03",
+      "titulo": "Qual o prazo de troca ou devolução?",
+      "resumo": "Define o prazo de 7 dias para devoluções de compras no site e esclarece que lojas parceiras possuem políticas próprias."
+    },
+    {
+      "id": "faq-04",
+      "titulo": "Como estender a garantia?",
+      "resumo": "Detalha como obter 12 meses extras de garantia ao cadastrar o número de série e nota fiscal no site em até 30 dias."
+    },
+    {
+      "id": "faq-05",
+      "titulo": "A Aurora K2 tem aplicativo?",
+      "resumo": "Esclarece que a máquina não possui conectividade ou aplicativo, sendo operada exclusivamente pelo painel."
+    },
+    {
+      "id": "faq-06",
+      "titulo": "Qual moagem devo usar?",
+      "resumo": "Recomenda o uso de moagem fina e alerta sobre os problemas de sabor ou erros causados por moagens inadequadas."
+    },
+    {
+      "id": "faq-07",
+      "titulo": "A água da minha cidade é dura. Isso é um problema?",
+      "resumo": "Orienta sobre o uso de água filtrada e a frequência de descalcificação para evitar danos por calcário não cobertos pela garantia."
+    },
+    {
+      "id": "faq-08",
+      "titulo": "Onde encontro assistência técnica?",
+      "resumo": "Informa que a lista de 46 assistências técnicas está no site e que o diagnóstico fora da garantia custa R$ 90."
+    },
+    {
+      "id": "faq-09",
+      "titulo": "Posso usar leite na máquina?",
+      "resumo": "Indica que a máquina não possui vaporizador de leite, sendo necessário utilizar um acessório externo."
+    },
+    {
+      "id": "faq-10",
+      "titulo": "Qual a diferença para a Aurora K1?",
+      "resumo": "Compara as especificações técnicas da K2 com a K1 e informa a disponibilidade de peças para o modelo antigo até 2027."
+    }
+  ],
+  "manual": [
+    {
+      "id": "manual-01",
+      "titulo": "Especificações técnicas",
+      "resumo": "Apresenta as especificações técnicas da cafeteira Aurora K2, incluindo potência, voltagem, dimensões, peso e capacidade do reservatório."
+    },
+    {
+      "id": "manual-02",
+      "titulo": "Tempo de aquecimento",
+      "resumo": "Descreve o tempo de aquecimento de 40 segundos e o significado das cores das luzes indicadoras no painel."
+    },
+    {
+      "id": "manual-03",
+      "titulo": "Preparo do café",
+      "resumo": "Explica o procedimento de preparo do café, detalhando a quantidade de pó, o uso do tamper e a seleção de doses."
+    },
+    {
+      "id": "manual-04",
+      "titulo": "Descalcificação",
+      "resumo": "Define as regras para descalcificação, incluindo a frequência recomendada e os produtos químicos permitidos ou proibidos."
+    },
+    {
+      "id": "manual-05",
+      "titulo": "Limpeza diária",
+      "resumo": "Estabelece as diretrizes para a limpeza diária dos componentes, proibindo o uso de máquinas de lavar louça."
+    },
+    {
+      "id": "manual-06",
+      "titulo": "Garantia",
+      "resumo": "Informa o prazo de 12 meses de garantia e as condições que levam à perda da cobertura por mau uso."
+    },
+    {
+      "id": "manual-07",
+      "titulo": "Segurança",
+      "resumo": "Lista precauções de segurança essenciais, como evitar imersão em água e cuidados com a temperatura do vapor."
+    },
+    {
+      "id": "manual-08",
+      "titulo": "Modo de economia de energia",
+      "resumo": "Detalha o funcionamento do modo de economia de energia, que desativa a máquina automaticamente após períodos de inatividade."
+    },
+    {
+      "id": "manual-09",
+      "titulo": "Códigos de erro",
+      "resumo": "Relaciona os códigos de erro de E1 a E4 com suas respectivas causas e as ações corretivas necessárias."
+    },
+    {
+      "id": "manual-10",
+      "titulo": "Conteúdo da embalagem",
+      "resumo": "Lista todos os itens que acompanham a cafeteira na embalagem original, incluindo acessórios e manuais."
+    }
+  ],
+  "wiki": [
+    {
+      "id": "wiki-01",
+      "titulo": "A empresa",
+      "resumo": "Apresenta a história da Caffeo Brasil, fundada em 2014 em Caxias do Sul, e sua transição da importação para a fabricação de cafeteiras."
+    },
+    {
+      "id": "wiki-02",
+      "titulo": "Fundadores e direção",
+      "resumo": "Identifica os fundadores Helena Brandt e Rogério Tancredi, detalhando a permanência de Brandt na presidência e a saída de Tancredi em 2020."
+    },
+    {
+      "id": "wiki-03",
+      "titulo": "Aurora K1",
+      "resumo": "Descreve as especificações técnicas e o período de comercialização da Aurora K1, lançada em 2017 e descontinuada em 2021."
+    },
+    {
+      "id": "wiki-04",
+      "titulo": "Recall da K1",
+      "resumo": "Relata o recall de 18.000 unidades da Aurora K1 ocorrido em 2019 devido a uma falha na caldeira, com custo de R$ 2,1 milhões."
+    },
+    {
+      "id": "wiki-05",
+      "titulo": "Aurora K2",
+      "resumo": "Detalha o lançamento da Aurora K2 em 2021, suas melhorias técnicas em relação à antecessora e o volume de vendas até 2025."
+    },
+    {
+      "id": "wiki-06",
+      "titulo": "Fábrica",
+      "resumo": "Descreve a estrutura produtiva da fábrica em Caxias do Sul, incluindo o quadro de 340 funcionários e a origem dos componentes."
+    },
+    {
+      "id": "wiki-07",
+      "titulo": "Preço e canais",
+      "resumo": "Informa o preço sugerido da Aurora K2 em 2026 e os canais de venda disponíveis para o consumidor."
+    },
+    {
+      "id": "wiki-08",
+      "titulo": "Prêmios",
+      "resumo": "Menciona a conquista do prêmio Design Brasil 2022 pela Aurora K2, destacando o diferencial do seu painel de controle."
+    },
+    {
+      "id": "wiki-09",
+      "titulo": "Produtos futuros",
+      "resumo": "Anuncia o desenvolvimento da futura Aurora K3, com moedor integrado e previsão de lançamento para 2027."
+    },
+    {
+      "id": "wiki-10",
+      "titulo": "Sustentabilidade",
+      "resumo": "Explica as iniciativas de sustentabilidade da empresa, incluindo o uso de embalagens recicladas e o programa de logística reversa de máquinas."
+    }
+  ]
+}

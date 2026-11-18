@@ -11,7 +11,7 @@ from __future__ import annotations
 import json
 import sys
 
-from comum import BASE_URL, EMBED_MODEL, LLM_MODEL, RAIZ, carregar_respostas, salvar_resultado
+from comum import BASE_URL, EMBED_MODEL, LLM_MODEL, RAIZ, SUFIXO, carregar_respostas, salvar_resultado
 
 SEP = "\n\n---\n\n"  # separador entre trechos recuperados
 
@@ -61,13 +61,13 @@ def gerar():
         },
         "tests": testes,
     }
-    destino = RAIZ / "promptfooconfig.yaml"
+    destino = RAIZ / f"promptfooconfig{SUFIXO}.yaml"
     destino.write_text(yaml.safe_dump(cfg, allow_unicode=True, sort_keys=False), encoding="utf-8")
     print("gerado", destino, f"({len(testes)} testes)")
 
 
 def converter():
-    bruto = json.loads((RAIZ / "results" / "promptfoo-raw.json").read_text(encoding="utf-8"))
+    bruto = json.loads((RAIZ / "results" / f"promptfoo-raw{SUFIXO}.json").read_text(encoding="utf-8"))
     resultados = bruto["results"]["results"] if isinstance(bruto["results"], dict) else bruto["results"]
     saida = []
     for res in resultados:
