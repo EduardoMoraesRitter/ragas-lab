@@ -1,0 +1,274 @@
+[
+  {
+    "modo": "bom",
+    "id": "q1",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.95,
+      "context_precision": 0.6,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.95 is greater than threshold 0.5",
+      "context_precision": "Context relevance 0.60 is >= 0.5",
+      "context_recall": "Recall 1.00 is >= 0.5"
+    }
+  },
+  {
+    "modo": "bom",
+    "id": "q2",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.738,
+      "context_precision": 0.2,
+      "context_recall": null
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.74 is greater than threshold 0.5",
+      "context_precision": "Context relevance 0.20 is < 0.5",
+      "context_recall": "ERRO do juiz: Grader returned no [Attributed]/[Not Attributed] classifications"
+    }
+  },
+  {
+    "modo": "bom",
+    "id": "q3",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.97,
+      "context_precision": 0.0,
+      "context_recall": 0.5
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.97 is greater than threshold 0.5",
+      "context_precision": "Grader output does not quote the provided context",
+      "context_recall": "Recall 0.50 is >= 0.5"
+    }
+  },
+  {
+    "modo": "bom",
+    "id": "q4",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.982,
+      "context_precision": 0.2,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.98 is greater than threshold 0.5",
+      "context_precision": "Context relevance 0.20 is < 0.5",
+      "context_recall": "Recall 1.00 is >= 0.5"
+    }
+  },
+  {
+    "modo": "bom",
+    "id": "q5",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.847,
+      "context_precision": 0.2,
+      "context_recall": null
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.85 is greater than threshold 0.5",
+      "context_precision": "Context relevance 0.20 is < 0.5",
+      "context_recall": "ERRO do juiz: Grader returned no [Attributed]/[Not Attributed] classifications"
+    }
+  },
+  {
+    "modo": "bom",
+    "id": "q6",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.864,
+      "context_precision": 0.4,
+      "context_recall": 0.667
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.86 is greater than threshold 0.5",
+      "context_precision": "Context relevance 0.40 is < 0.5",
+      "context_recall": "Recall 0.67 is >= 0.5"
+    }
+  },
+  {
+    "modo": "bom",
+    "id": "q7",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.996,
+      "context_precision": 0.4,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 1.00 is greater than threshold 0.5",
+      "context_precision": "Context relevance 0.40 is < 0.5",
+      "context_recall": "Recall 1.00 is >= 0.5"
+    }
+  },
+  {
+    "modo": "bom",
+    "id": "q8",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.476,
+      "context_precision": 0.0,
+      "context_recall": 0.5
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.48 is less than threshold 0.5",
+      "context_precision": "Context relevance 0.00 is < 0.5",
+      "context_recall": "Recall 0.50 is >= 0.5"
+    }
+  },
+  {
+    "modo": "ruim",
+    "id": "q1",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.956,
+      "context_precision": 0.667,
+      "context_recall": 0.5
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.96 is greater than threshold 0.5",
+      "context_precision": "Context relevance 0.67 is >= 0.5",
+      "context_recall": "Recall 0.50 is >= 0.5"
+    }
+  },
+  {
+    "modo": "ruim",
+    "id": "q2",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.797,
+      "context_precision": 0.0,
+      "context_recall": null
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.80 is greater than threshold 0.5",
+      "context_precision": "Grader output does not quote the provided context",
+      "context_recall": "ERRO do juiz: Grader returned no [Attributed]/[Not Attributed] classifications"
+    }
+  },
+  {
+    "modo": "ruim",
+    "id": "q3",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.477,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.48 is less than threshold 0.5",
+      "context_precision": "Context relevance 0.00 is < 0.5",
+      "context_recall": "Recall 0.00 is < 0.5"
+    }
+  },
+  {
+    "modo": "ruim",
+    "id": "q4",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 0.667,
+      "answer_relevancy": 0.676,
+      "context_precision": 0.333,
+      "context_recall": null
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 0.67 is >= 0.5",
+      "answer_relevancy": "Relevance 0.68 is greater than threshold 0.5",
+      "context_precision": "Context relevance 0.33 is < 0.5",
+      "context_recall": "ERRO do juiz: Grader returned no [Attributed]/[Not Attributed] classifications"
+    }
+  },
+  {
+    "modo": "ruim",
+    "id": "q5",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.859,
+      "context_precision": 0.333,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.86 is greater than threshold 0.5",
+      "context_precision": "Context relevance 0.33 is < 0.5",
+      "context_recall": "Recall 1.00 is >= 0.5"
+    }
+  },
+  {
+    "modo": "ruim",
+    "id": "q6",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.47,
+      "context_precision": 0.0,
+      "context_recall": 0.333
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 0.00 is < 0.5",
+      "answer_relevancy": "Relevance 0.47 is less than threshold 0.5",
+      "context_precision": "Context relevance 0.00 is < 0.5",
+      "context_recall": "Recall 0.33 is < 0.5"
+    }
+  },
+  {
+    "modo": "ruim",
+    "id": "q7",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.465,
+      "context_precision": 0.0,
+      "context_recall": null
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.46 is less than threshold 0.5",
+      "context_precision": "Context relevance 0.00 is < 0.5",
+      "context_recall": "ERRO do juiz: Grader returned no [Attributed]/[Not Attributed] classifications"
+    }
+  },
+  {
+    "modo": "ruim",
+    "id": "q8",
+    "ferramenta": "promptfoo",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.476,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "detalhes": {
+      "faithfulness": "Faithfulness 1.00 is >= 0.5",
+      "answer_relevancy": "Relevance 0.48 is less than threshold 0.5",
+      "context_precision": "Context relevance 0.00 is < 0.5",
+      "context_recall": "Recall 0.00 is < 0.5"
+    }
+  }
+]

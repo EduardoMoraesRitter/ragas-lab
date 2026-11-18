@@ -77,8 +77,11 @@ def converter():
         for c in comps:
             tipo = (c.get("assertion") or {}).get("type")
             nome = MAPA.get(tipo, tipo)
-            linha["scores"][nome] = round(float(c.get("score", 0)), 3) if c.get("score") is not None else None
-            linha["detalhes"][nome] = c.get("reason")
+            motivo = c.get("reason") or ""
+            # juiz não devolveu o formato que o Promptfoo espera: fica sem nota, como nos outros dois
+            falhou = c.get("score") is None or "Grader returned no" in motivo or "invalid" in motivo.lower()
+            linha["scores"][nome] = None if falhou else round(float(c["score"]), 3)
+            linha["detalhes"][nome] = ("ERRO do juiz: " + motivo) if falhou else motivo
         saida.append(linha)
     saida.sort(key=lambda x: (x["modo"], x["id"]))
     print("salvo em", salvar_resultado("promptfoo", saida), f"({len(saida)} linhas)")

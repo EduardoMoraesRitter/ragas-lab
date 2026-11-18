@@ -8,60 +8,60 @@
 | ragas | ruim | 0.72 | 0.42 | 0.31 | 0.58 |
 | deepeval | bom | 0.88 | 0.96 | 0.77 | 0.81 |
 | deepeval | ruim | 0.50 | 0.96 | 0.50 | 0.42 |
-| promptfoo | bom | – | – | – | – |
-| promptfoo | ruim | – | – | – | – |
+| promptfoo | bom | 1.00 | 0.85 | 0.25 | 0.78 |
+| promptfoo | ruim | 0.83 | 0.65 | 0.17 | 0.37 |
 
 ## 2. Fidelidade por pergunta (bom / ruim)
 
 | Pergunta | ragas | deepeval | promptfoo |
 |---|---|---|---|
-| q1 | 1.00 / 1.00 | 1.00 / 1.00 | – / – |
-| q2 | 1.00 / 0.75 | 1.00 / 1.00 | – / – |
-| q3 | 1.00 / 1.00 | 1.00 / 0.00 | – / – |
-| q4 | 1.00 / 1.00 | 1.00 / 1.00 | – / – |
-| q5 | 1.00 / 1.00 | 1.00 / 1.00 | – / – |
-| q6 | 1.00 / 0.00 | 1.00 / 0.00 | – / – |
-| q7 | 0.83 / 0.00 | 1.00 / 0.00 | – / – |
-| q8 | 1.00 / 1.00 | 0.00 / 0.00 | – / – |
+| q1 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 1.00 |
+| q2 | 1.00 / 0.75 | 1.00 / 1.00 | 1.00 / 1.00 |
+| q3 | 1.00 / 1.00 | 1.00 / 0.00 | 1.00 / 1.00 |
+| q4 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 0.67 |
+| q5 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 1.00 |
+| q6 | 1.00 / 0.00 | 1.00 / 0.00 | 1.00 / 0.00 |
+| q7 | 0.83 / 0.00 | 1.00 / 0.00 | 1.00 / 1.00 |
+| q8 | 1.00 / 1.00 | 0.00 / 0.00 | 1.00 / 1.00 |
 
 ## 2. Relevância da resposta por pergunta (bom / ruim)
 
 | Pergunta | ragas | deepeval | promptfoo |
 |---|---|---|---|
-| q1 | 0.95 / 0.99 | 1.00 / 1.00 | – / – |
-| q2 | 0.77 / 0.81 | 0.67 / 0.67 | – / – |
-| q3 | 0.97 / 0.00 | 1.00 / 1.00 | – / – |
-| q4 | 0.98 / 0.70 | 1.00 / 1.00 | – / – |
-| q5 | 0.87 / 0.88 | 1.00 / 1.00 | – / – |
-| q6 | 0.88 / 0.00 | 1.00 / 1.00 | – / – |
-| q7 | 1.00 / 0.00 | 1.00 / 1.00 | – / – |
-| q8 | 0.00 / 0.00 | 1.00 / 1.00 | – / – |
+| q1 | 0.95 / 0.99 | 1.00 / 1.00 | 0.95 / 0.96 |
+| q2 | 0.77 / 0.81 | 0.67 / 0.67 | 0.74 / 0.80 |
+| q3 | 0.97 / 0.00 | 1.00 / 1.00 | 0.97 / 0.48 |
+| q4 | 0.98 / 0.70 | 1.00 / 1.00 | 0.98 / 0.68 |
+| q5 | 0.87 / 0.88 | 1.00 / 1.00 | 0.85 / 0.86 |
+| q6 | 0.88 / 0.00 | 1.00 / 1.00 | 0.86 / 0.47 |
+| q7 | 1.00 / 0.00 | 1.00 / 1.00 | 1.00 / 0.47 |
+| q8 | 0.00 / 0.00 | 1.00 / 1.00 | 0.48 / 0.48 |
 
 ## 2. Precisão do contexto por pergunta (bom / ruim)
 
 | Pergunta | ragas | deepeval | promptfoo |
 |---|---|---|---|
-| q1 | 0.33 / 0.00 | 1.00 / 1.00 | – / – |
-| q2 | 1.00 / 1.00 | 1.00 / 1.00 | – / – |
-| q3 | 0.00 / 0.00 | 1.00 / 0.00 | – / – |
-| q4 | 0.33 / 0.50 | 0.33 / 0.50 | – / – |
-| q5 | 1.00 / 1.00 | 1.00 / – | – / – |
-| q6 | 0.33 / 0.00 | 0.83 / 1.00 | – / – |
-| q7 | 1.00 / 0.00 | 1.00 / 0.00 | – / – |
-| q8 | 0.00 / 0.00 | 0.00 / 0.00 | – / – |
+| q1 | 0.33 / 0.00 | 1.00 / 1.00 | 0.60 / 0.67 |
+| q2 | 1.00 / 1.00 | 1.00 / 1.00 | 0.20 / 0.00 |
+| q3 | 0.00 / 0.00 | 1.00 / 0.00 | 0.00 / 0.00 |
+| q4 | 0.33 / 0.50 | 0.33 / 0.50 | 0.20 / 0.33 |
+| q5 | 1.00 / 1.00 | 1.00 / – | 0.20 / 0.33 |
+| q6 | 0.33 / 0.00 | 0.83 / 1.00 | 0.40 / 0.00 |
+| q7 | 1.00 / 0.00 | 1.00 / 0.00 | 0.40 / 0.00 |
+| q8 | 0.00 / 0.00 | 0.00 / 0.00 | 0.00 / 0.00 |
 
 ## 2. Cobertura do contexto por pergunta (bom / ruim)
 
 | Pergunta | ragas | deepeval | promptfoo |
 |---|---|---|---|
-| q1 | 1.00 / 0.50 | 1.00 / 0.00 | – / – |
+| q1 | 1.00 / 0.50 | 1.00 / 0.00 | 1.00 / 0.50 |
 | q2 | 1.00 / 1.00 | 1.00 / 1.00 | – / – |
-| q3 | 0.50 / 0.00 | 0.50 / 0.00 | – / – |
-| q4 | 1.00 / 1.00 | 1.00 / 1.00 | – / – |
-| q5 | 1.00 / 1.00 | 1.00 / 1.00 | – / – |
-| q6 | 1.00 / 0.67 | 1.00 / 0.33 | – / – |
-| q7 | 1.00 / 0.00 | 1.00 / 0.00 | – / – |
-| q8 | 0.50 / 0.50 | 0.00 / 0.00 | – / – |
+| q3 | 0.50 / 0.00 | 0.50 / 0.00 | 0.50 / 0.00 |
+| q4 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / – |
+| q5 | 1.00 / 1.00 | 1.00 / 1.00 | – / 1.00 |
+| q6 | 1.00 / 0.67 | 1.00 / 0.33 | 0.67 / 0.33 |
+| q7 | 1.00 / 0.00 | 1.00 / 0.00 | 1.00 / – |
+| q8 | 0.50 / 0.50 | 0.00 / 0.00 | 0.50 / 0.00 |
 
 ## 3. O que cada RAG respondeu
 
@@ -187,3 +187,67 @@ Gabarito: Não há essa informação. A Aurora K3 foi anunciada para 2027 e nenh
 - deepeval / ruim / q8 / Relevância da resposta = 1.00: The score is 1.00 because the output directly and completely addresses the input without containing any irrelevant statements.
 - deepeval / ruim / q8 / Precisão do contexto = 0.00: The score is 0.00 because all retrieved nodes are irrelevant. Specifically, the first node incorrectly discusses the capacity of 'Aurora K1' and 'Aurora K2' instead of 'Aurora K3', and the second node only lists technical specifications for 'Aurora K2' ('Reservatório de água removível de 1,4 litro') without containing information about the 'Aurora K3'. Therefore, no relevant nodes were retrieved t
 - deepeval / ruim / q8 / Cobertura do contexto = 0.00: The score is 0.00 because the entire expected output regarding the Aurora K3 model and its 2027 announcement cannot be attributed to the 1st and 2nd nodes in the retrieval context, which only contain information about the Aurora K1 and Aurora K2 models.
+- promptfoo / bom / q1 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / bom / q1 / Relevância da resposta = 0.95: Relevance 0.95 is greater than threshold 0.5
+- promptfoo / bom / q1 / Precisão do contexto = 0.60: Context relevance 0.60 is >= 0.5
+- promptfoo / bom / q1 / Cobertura do contexto = 1.00: Recall 1.00 is >= 0.5
+- promptfoo / bom / q2 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / bom / q2 / Relevância da resposta = 0.74: Relevance 0.74 is greater than threshold 0.5
+- promptfoo / bom / q2 / Precisão do contexto = 0.20: Context relevance 0.20 is < 0.5
+- promptfoo / bom / q2 / Cobertura do contexto = –: ERRO do juiz: Grader returned no [Attributed]/[Not Attributed] classifications
+- promptfoo / bom / q3 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / bom / q3 / Relevância da resposta = 0.97: Relevance 0.97 is greater than threshold 0.5
+- promptfoo / bom / q3 / Precisão do contexto = 0.00: Grader output does not quote the provided context
+- promptfoo / bom / q3 / Cobertura do contexto = 0.50: Recall 0.50 is >= 0.5
+- promptfoo / bom / q4 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / bom / q4 / Relevância da resposta = 0.98: Relevance 0.98 is greater than threshold 0.5
+- promptfoo / bom / q4 / Precisão do contexto = 0.20: Context relevance 0.20 is < 0.5
+- promptfoo / bom / q4 / Cobertura do contexto = 1.00: Recall 1.00 is >= 0.5
+- promptfoo / bom / q5 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / bom / q5 / Relevância da resposta = 0.85: Relevance 0.85 is greater than threshold 0.5
+- promptfoo / bom / q5 / Precisão do contexto = 0.20: Context relevance 0.20 is < 0.5
+- promptfoo / bom / q5 / Cobertura do contexto = –: ERRO do juiz: Grader returned no [Attributed]/[Not Attributed] classifications
+- promptfoo / bom / q6 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / bom / q6 / Relevância da resposta = 0.86: Relevance 0.86 is greater than threshold 0.5
+- promptfoo / bom / q6 / Precisão do contexto = 0.40: Context relevance 0.40 is < 0.5
+- promptfoo / bom / q6 / Cobertura do contexto = 0.67: Recall 0.67 is >= 0.5
+- promptfoo / bom / q7 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / bom / q7 / Relevância da resposta = 1.00: Relevance 1.00 is greater than threshold 0.5
+- promptfoo / bom / q7 / Precisão do contexto = 0.40: Context relevance 0.40 is < 0.5
+- promptfoo / bom / q7 / Cobertura do contexto = 1.00: Recall 1.00 is >= 0.5
+- promptfoo / bom / q8 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / bom / q8 / Relevância da resposta = 0.48: Relevance 0.48 is less than threshold 0.5
+- promptfoo / bom / q8 / Precisão do contexto = 0.00: Context relevance 0.00 is < 0.5
+- promptfoo / bom / q8 / Cobertura do contexto = 0.50: Recall 0.50 is >= 0.5
+- promptfoo / ruim / q1 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / ruim / q1 / Relevância da resposta = 0.96: Relevance 0.96 is greater than threshold 0.5
+- promptfoo / ruim / q1 / Precisão do contexto = 0.67: Context relevance 0.67 is >= 0.5
+- promptfoo / ruim / q1 / Cobertura do contexto = 0.50: Recall 0.50 is >= 0.5
+- promptfoo / ruim / q2 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / ruim / q2 / Relevância da resposta = 0.80: Relevance 0.80 is greater than threshold 0.5
+- promptfoo / ruim / q2 / Precisão do contexto = 0.00: Grader output does not quote the provided context
+- promptfoo / ruim / q2 / Cobertura do contexto = –: ERRO do juiz: Grader returned no [Attributed]/[Not Attributed] classifications
+- promptfoo / ruim / q3 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / ruim / q3 / Relevância da resposta = 0.48: Relevance 0.48 is less than threshold 0.5
+- promptfoo / ruim / q3 / Precisão do contexto = 0.00: Context relevance 0.00 is < 0.5
+- promptfoo / ruim / q3 / Cobertura do contexto = 0.00: Recall 0.00 is < 0.5
+- promptfoo / ruim / q4 / Fidelidade = 0.67: Faithfulness 0.67 is >= 0.5
+- promptfoo / ruim / q4 / Relevância da resposta = 0.68: Relevance 0.68 is greater than threshold 0.5
+- promptfoo / ruim / q4 / Precisão do contexto = 0.33: Context relevance 0.33 is < 0.5
+- promptfoo / ruim / q4 / Cobertura do contexto = –: ERRO do juiz: Grader returned no [Attributed]/[Not Attributed] classifications
+- promptfoo / ruim / q5 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / ruim / q5 / Relevância da resposta = 0.86: Relevance 0.86 is greater than threshold 0.5
+- promptfoo / ruim / q5 / Precisão do contexto = 0.33: Context relevance 0.33 is < 0.5
+- promptfoo / ruim / q5 / Cobertura do contexto = 1.00: Recall 1.00 is >= 0.5
+- promptfoo / ruim / q6 / Fidelidade = 0.00: Faithfulness 0.00 is < 0.5
+- promptfoo / ruim / q6 / Relevância da resposta = 0.47: Relevance 0.47 is less than threshold 0.5
+- promptfoo / ruim / q6 / Precisão do contexto = 0.00: Context relevance 0.00 is < 0.5
+- promptfoo / ruim / q6 / Cobertura do contexto = 0.33: Recall 0.33 is < 0.5
+- promptfoo / ruim / q7 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / ruim / q7 / Relevância da resposta = 0.47: Relevance 0.46 is less than threshold 0.5
+- promptfoo / ruim / q7 / Precisão do contexto = 0.00: Context relevance 0.00 is < 0.5
+- promptfoo / ruim / q7 / Cobertura do contexto = –: ERRO do juiz: Grader returned no [Attributed]/[Not Attributed] classifications
+- promptfoo / ruim / q8 / Fidelidade = 1.00: Faithfulness 1.00 is >= 0.5
+- promptfoo / ruim / q8 / Relevância da resposta = 0.48: Relevance 0.48 is less than threshold 0.5
+- promptfoo / ruim / q8 / Precisão do contexto = 0.00: Context relevance 0.00 is < 0.5
+- promptfoo / ruim / q8 / Cobertura do contexto = 0.00: Recall 0.00 is < 0.5

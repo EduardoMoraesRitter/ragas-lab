@@ -6,7 +6,7 @@ Data: 18/11/2026. Números completos em `docs/tabelas.md`. Página com gráficos
 
 1. **Ragas não é um RAG. É um juiz de RAG.** Ele recebe pergunta, trechos recuperados, resposta e gabarito, e devolve notas de 0 a 1. Quem faz a busca e a resposta é o seu sistema.
 2. **As três ferramentas fazem a mesma coisa** com as mesmas 4 métricas. A diferença está no que vem junto: motivo da nota, interface, integração com testes.
-3. **Ragas separou bem o RAG bom do RAG ruim** nas 4 métricas. DeepEval errou a relevância do RAG ruim (deu 0,96 para respostas que recusavam). Promptfoo: ver seção 5.
+3. **Ragas separou bem o RAG bom do RAG ruim** nas 4 métricas. DeepEval errou a relevância do RAG ruim (deu 0,96 para respostas que recusavam). Promptfoo separou os dois, mas com notas de contexto baixas para todo mundo e 5 células sem nota.
 4. **O juiz manda mais do que a biblioteca.** Metade das discordâncias vem do modelo barato que julgou, não do código do Ragas ou do DeepEval.
 5. **Nenhuma tem interface pronta e grátis que mostre tudo.** Só o Promptfoo tem painel local. A página `comparativo.html` deste projeto mostra as três lado a lado.
 
@@ -41,8 +41,10 @@ Juiz: Gemini 3.5 Flash Lite (nível gratuito) para Ragas e DeepEval. Para o Prom
 | Ragas | ruim | 0,72 | 0,42 | 0,31 | 0,58 |
 | DeepEval | bom | 0,88 | 0,96 | 0,77 | 0,81 |
 | DeepEval | ruim | 0,50 | 0,96 | 0,50 | 0,42 |
-| Promptfoo | bom | ver `tabelas.md` | | | |
-| Promptfoo | ruim | ver `tabelas.md` | | | |
+| Promptfoo | bom | 1,00 | 0,85 | 0,25 | 0,78 |
+| Promptfoo | ruim | 0,83 | 0,65 | 0,17 | 0,37 |
+
+Promptfoo ficou sem nota em 5 células (2 de cobertura, 3 de precisão): o juiz não devolveu o formato que a ferramenta esperava. A média acima ignora essas células.
 
 Leitura:
 
@@ -56,24 +58,25 @@ Leitura:
 
 Aparece em bom q8 e em ruim q3, q6, q7, q8. É o caso mais revelador.
 
-| Métrica | Ragas | DeepEval | Quem tem razão |
-|---|---|---|---|
-| Fidelidade | 1,0 | 0,0 | Depende da definição. Ragas: a recusa não inventa nada, então é fiel. DeepEval: a recusa contradiz o contexto quando o contexto tinha a resposta. Na q8 (K3, sem dado) o DeepEval errou: deu 0,0 e escreveu que o contexto "fornece informação diversa sobre a K2", o que não responde sobre a K3. |
-| Relevância | 0,0 | 1,0 | Ragas. A recusa não responde à pergunta. DeepEval considera que "não ter frase irrelevante" basta, e dá nota máxima para uma não-resposta. |
+| Métrica | Ragas | DeepEval | Promptfoo | Quem tem razão |
+|---|---|---|---|---|
+| Fidelidade | 1,0 | 0,0 | 1,0 | Depende da definição. Ragas e Promptfoo: a recusa não inventa nada, então é fiel. DeepEval: a recusa contradiz o contexto quando o contexto tinha a resposta. Na q8 (K3, sem dado) o DeepEval errou: deu 0,0 e escreveu que o contexto "fornece informação diversa sobre a K2", o que não responde sobre a K3. |
+| Relevância | 0,0 | 1,0 | 0,47 | Ragas. A recusa não responde à pergunta. DeepEval considera que "não ter frase irrelevante" basta, e dá nota máxima para uma não-resposta. Promptfoo mede por semelhança de embedding entre a pergunta e perguntas geradas a partir da resposta; a recusa fica no meio. |
 
-Consequência prática: **com DeepEval, um RAG que recusa tudo tira 1,0 em relevância.** Com Ragas, tira 0,0. Se o seu sistema recusa muito, a escolha da ferramenta muda a conclusão.
+Consequência prática: **com DeepEval, um RAG que recusa tudo tira 1,0 em relevância.** Com Ragas, tira 0,0. Com Promptfoo, perto de 0,5. Se o seu sistema recusa muito, a escolha da ferramenta muda a conclusão.
 
 ### 3.2 Erros do juiz, não da biblioteca
 
 - DeepEval, bom q8, cobertura 0,0 e precisão 0,0: correto, não há dado da K3. Mas em fidelidade o juiz confundiu K2 com K3.
 - DeepEval, ruim q5, precisão do contexto: "Evaluation LLM outputted an invalid JSON". O modelo barato não devolveu o JSON que a biblioteca pede. Fica sem nota.
 - Ragas, bom q3, precisão 0,0 com cobertura 0,5: os trechos tinham a garantia de 12 meses, mas o juiz não marcou nenhum como útil. Ragas não devolve motivo, então não dá para saber o que ele pensou.
+- Promptfoo, bom q2 e q5, cobertura: "Grader returned no [Attributed]/[Not Attributed] classifications". O juiz respondeu em texto livre em vez das etiquetas que o Promptfoo procura. Na primeira conversão isso virou nota 0,0; corrigi para "sem nota". Sem essa correção, a cobertura do RAG bom cairia de 0,78 para 0,58 por erro de formato, não de busca.
 
 Lição: **a nota é tão boa quanto o modelo que julga.** Um juiz de nível gratuito gera ruído de 10 a 20 pontos. Para decisão séria, usar um modelo forte como juiz e rodar mais de uma vez.
 
 ### 3.3 Precisão do contexto: definições diferentes
 
-Ragas e DeepEval calculam precisão com peso pela posição (o trecho útil tem que vir primeiro). Promptfoo não tem "context precision"; o mais perto é "context relevance" (quanto do contexto é relevante), sem olhar ordem. Os números dessa coluna **não são comparáveis** entre Promptfoo e os outros dois.
+Ragas e DeepEval calculam precisão com peso pela posição (o trecho útil tem que vir primeiro). Promptfoo não tem "context precision"; o mais perto é "context relevance" (fração das frases do contexto que ajudam), sem olhar ordem. Por isso o Promptfoo deu 0,25 para o RAG bom: de 3 trechos com várias frases cada, só uma ou duas frases respondem. Os números dessa coluna **não são comparáveis** entre Promptfoo e os outros dois.
 
 ## 4. Ragas: o que faz de bom e de ruim
 
@@ -98,13 +101,14 @@ Ragas e DeepEval calculam precisão com peso pela posição (o trecho útil tem 
 | | Ragas | DeepEval | Promptfoo |
 |---|---|---|---|
 | É o quê | biblioteca Python de métricas | framework de testes Python (estilo pytest) | ferramenta de linha de comando em Node, config em YAML |
-| Motivo da nota | não | sim | sim |
+| Motivo da nota | não | sim, em frase | só "nota X passou/não passou do limite"; o raciocínio do juiz fica no JSON bruto, em `metadata` |
 | Interface | app.ragas.io (pago) | Confident AI (nuvem, login) | `promptfoo view` (local, grátis) |
 | Encaixe | pipeline Python, notebooks | suíte de testes, CI | comparar prompts e modelos, CI, red team |
-| Pegadinha vista aqui | API nova vs antiga; sem motivo | relevância 1,0 para recusa; juiz barato quebra o JSON | lista em `vars` vira N casos de teste (produto cartesiano); não tem precisão com ordem |
-| Tempo (16 respostas, 4 métricas) | 15 min | 18 min | ver `tabelas.md` |
+| Pegadinha vista aqui | API nova vs antiga; sem motivo | relevância 1,0 para recusa; juiz barato quebra o JSON | lista em `vars` vira N casos de teste (produto cartesiano, 40 em vez de 16); não tem precisão com ordem; juiz fora do formato vira 0,0 em vez de "sem nota" |
+| Tempo (16 respostas, 4 métricas) | 15 min | 18 min | 12 min (45 mil tokens de juiz) |
+| Chamadas de juiz por caso | 4 a 5 | 8 a 10 | 7 |
 
-Promptfoo: resultado e tempo em `docs/tabelas.md`, seção 1, e na página `comparativo.html`.
+O Promptfoo também imprime "2 passed, 14 failed": ele trata cada métrica como teste com limite 0,5, e um caso só passa se as 4 passarem. Para comparar RAGs isso é menos útil que a nota; para CI é o ponto forte.
 
 ## 6. Custo
 
