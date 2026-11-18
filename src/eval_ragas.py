@@ -6,11 +6,13 @@ context_recall (com referência). Saída: results/ragas.json
 from __future__ import annotations
 
 import asyncio
+import json
+import os
 import time
 
 from openai import AsyncOpenAI
 
-from comum import API_KEY, BASE_URL, EMBED_MODEL, LLM_MODEL, PAUSA_S, carregar_respostas, salvar_resultado
+from comum import API_KEY, BASE_URL, EMBED_MODEL, LLM_MODEL, PAUSA_S, RAIZ, carregar_respostas, salvar_resultado
 
 from ragas.embeddings.base import embedding_factory
 from ragas.llms import llm_factory
@@ -29,16 +31,25 @@ async def main():
         "context_recall": ContextRecall(llm=llm),
     }
 
+    # METRICAS=a,b roda só um subconjunto e preserva o que já está em results/ragas.json
+    so = os.environ.get("METRICAS")
+    anteriores = {}
+    if so:
+        metricas = {k: v for k, v in metricas.items() if k in so.split(",")}
+        arq = RAIZ / "results" / "ragas.json"
+        if arq.exists():
+            anteriores = {(x["modo"], x["id"]): x for x in json.loads(arq.read_text(encoding="utf-8"))}
     saida = []
     t0 = time.time()
     for r in carregar_respostas():
-        linha = {"modo": r["modo"], "id": r["id"], "ferramenta": "ragas", "scores": {}, "detalhes": {}}
+        linha = anteriores.get((r["modo"], r["id"])) or {"modo": r["modo"], "id": r["id"], "ferramenta": "ragas", "scores": {}, "detalhes": {}}
         for nome, m in metricas.items():
-            kwargs = dict(user_input=r["pergunta"], response=r["resposta"], retrieved_contexts=r["contextos"])
-            if nome == "answer_relevancy":
+            if nome == "faithfulness":
+                kwargs = dict(user_input=r["pergunta"], response=r["resposta"], retrieved_contexts=r["contextos"])
+            elif nome == "answer_relevancy":
                 kwargs = dict(user_input=r["pergunta"], response=r["resposta"])
-            if nome in ("context_precision", "context_recall"):
-                kwargs["reference"] = r["referencia"]
+            else:  # context_precision e context_recall: sem response, com reference
+                kwargs = dict(user_input=r["pergunta"], retrieved_contexts=r["contextos"], reference=r["referencia"])
             try:
                 res = await m.ascore(**kwargs)
                 linha["scores"][nome] = round(float(res.value), 3)
