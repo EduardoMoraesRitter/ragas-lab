@@ -13,6 +13,8 @@ import sys
 
 from comum import BASE_URL, EMBED_MODEL, LLM_MODEL, RAIZ, carregar_respostas, salvar_resultado
 
+SEP = "\n\n---\n\n"  # separador entre trechos recuperados
+
 MAPA = {
     "context-faithfulness": "faithfulness",
     "answer-relevance": "answer_relevancy",
@@ -33,7 +35,8 @@ def gerar():
                 "id": r["id"],
                 "query": r["pergunta"],
                 "response": r["resposta"],
-                "context": r["contextos"],
+                # uma string só: lista em var vira N casos de teste no Promptfoo (expansão cartesiana)
+                "context": SEP.join(r["contextos"]),
             },
             "assert": [
                 {"type": "context-faithfulness", "threshold": 0.5},

@@ -7,7 +7,7 @@ defaultTest:
   options:
     provider:
       text:
-        id: openai:chat:gemini-3.5-flash-lite
+        id: openai:chat:gemini-3.1-flash-lite
         config:
           apiBaseUrl: https://generativelanguage.googleapis.com/v1beta/openai
           apiKey: '{{env.OPENAI_API_KEY}}'
@@ -25,15 +25,24 @@ tests:
     query: Qual é a pressão da bomba da Aurora K2 e quanto ela pesa?
     response: A cafeteira Aurora K2 possui uma bomba de 15 bar. O peso do aparelho
       é de 4,2 kg.
-    context:
-    - Aurora K2. A Aurora K2 foi lançada em outubro de 2021 como sucessora da K1.
-      As principais mudanças foram a bomba de 15 bar, o reservatório maior e a caldeira
-      de aço inox em lugar da de alumínio. Até dezembro de 2025 foram vendidas cerca
-      de 210.000 unidades.
-    - Qual a diferença para a Aurora K1?. A K2 tem bomba de 15 bar em vez de 9 bar,
+    context: 'Aurora K2. A Aurora K2 foi lançada em outubro de 2021 como sucessora
+      da K1. As principais mudanças foram a bomba de 15 bar, o reservatório maior
+      e a caldeira de aço inox em lugar da de alumínio. Até dezembro de 2025 foram
+      vendidas cerca de 210.000 unidades.
+
+
+      ---
+
+
+      Qual a diferença para a Aurora K1?. A K2 tem bomba de 15 bar em vez de 9 bar,
       reservatório de 1,4 litro em vez de 1,0 litro e caldeira de aço inox. A K1 não
       é mais fabricada, mas ainda tem peças de reposição até 2027.
-    - 'Especificações técnicas. A Aurora K2 é uma cafeteira de café moído com bomba
+
+
+      ---
+
+
+      Especificações técnicas. A Aurora K2 é uma cafeteira de café moído com bomba
       de 15 bar. Potência de 1.350 W, tensão bivolt automática (127 V e 220 V). Reservatório
       de água removível de 1,4 litro. Peso de 4,2 kg. Dimensões: 32 cm de altura,
       18 cm de largura e 30 cm de profundidade.'
@@ -55,17 +64,26 @@ tests:
       cidade for dura?
     response: Água dura acelera o acúmulo de calcário e recomendamos usar água filtrada
       e descalcificar a cada 150 extrações em vez de 300.
-    context:
-    - A água da minha cidade é dura. Isso é um problema?. Água dura acelera o acúmulo
-      de calcário. Recomendamos usar água filtrada e descalcificar a cada 150 extrações
-      em vez de 300. Danos por calcário não são cobertos pela garantia.
-    - 'Descalcificação. Descalcifique a cada 300 extrações ou quando a luz indicadora
+    context: 'A água da minha cidade é dura. Isso é um problema?. Água dura acelera
+      o acúmulo de calcário. Recomendamos usar água filtrada e descalcificar a cada
+      150 extrações em vez de 300. Danos por calcário não são cobertos pela garantia.
+
+
+      ---
+
+
+      Descalcificação. Descalcifique a cada 300 extrações ou quando a luz indicadora
       piscar em vermelho. Use o descalcificante Aurora Clean ou ácido cítrico diluído
-      a 2%. Nunca use vinagre: ele danifica a vedação de silicone da caldeira.'
-    - Aurora K2. A Aurora K2 foi lançada em outubro de 2021 como sucessora da K1.
+      a 2%. Nunca use vinagre: ele danifica a vedação de silicone da caldeira.
+
+
+      ---
+
+
+      Aurora K2. A Aurora K2 foi lançada em outubro de 2021 como sucessora da K1.
       As principais mudanças foram a bomba de 15 bar, o reservatório maior e a caldeira
       de aço inox em lugar da de alumínio. Até dezembro de 2025 foram vendidas cerca
-      de 210.000 unidades.
+      de 210.000 unidades.'
   assert:
   - type: context-faithfulness
     threshold: 0.5
@@ -84,17 +102,26 @@ tests:
     query: Quanto tempo de garantia eu tenho na Aurora K2?
     response: A Aurora K2 tem garantia legal e contratual de 12 meses contra defeitos
       de fabricação, contados a partir da data da nota fiscal.
-    context:
-    - Garantia. A Aurora K2 tem garantia legal e contratual de 12 meses contra defeitos
-      de fabricação, contados a partir da data da nota fiscal. A garantia não cobre
-      danos por queda, uso de descalcificante inadequado ou obstrução por água com
-      alto teor de calcário.
-    - Posso usar cápsulas na Aurora K2?. Não. A Aurora K2 funciona apenas com café
+    context: 'Garantia. A Aurora K2 tem garantia legal e contratual de 12 meses contra
+      defeitos de fabricação, contados a partir da data da nota fiscal. A garantia
+      não cobre danos por queda, uso de descalcificante inadequado ou obstrução por
+      água com alto teor de calcário.
+
+
+      ---
+
+
+      Posso usar cápsulas na Aurora K2?. Não. A Aurora K2 funciona apenas com café
       moído. Não existe adaptador oficial para cápsulas e o uso de adaptadores de
       terceiros cancela a garantia.
-    - A Aurora K2 tem aplicativo?. Não. A Aurora K2 não tem conectividade Wi-Fi ou
+
+
+      ---
+
+
+      A Aurora K2 tem aplicativo?. Não. A Aurora K2 não tem conectividade Wi-Fi ou
       Bluetooth e não existe aplicativo. O controle é feito apenas pelo botão giratório
-      no painel.
+      no painel.'
   assert:
   - type: context-faithfulness
     threshold: 0.5
@@ -113,16 +140,25 @@ tests:
     query: Quem fundou a Caffeo Brasil e quem a preside hoje?
     response: A Caffeo Brasil foi fundada por Helena Brandt e Rogério Tancredi. Helena
       Brandt é a presidente desde a fundação.
-    context:
-    - A empresa. A Caffeo Brasil é uma fabricante de eletrodomésticos para café fundada
-      em 2014 em Caxias do Sul, no Rio Grande do Sul. Começou importando moedores
-      e passou a fabricar cafeteiras próprias em 2017.
-    - Onde encontro assistência técnica?. A lista de assistências autorizadas está
+    context: 'A empresa. A Caffeo Brasil é uma fabricante de eletrodomésticos para
+      café fundada em 2014 em Caxias do Sul, no Rio Grande do Sul. Começou importando
+      moedores e passou a fabricar cafeteiras próprias em 2017.
+
+
+      ---
+
+
+      Onde encontro assistência técnica?. A lista de assistências autorizadas está
       no site da Caffeo. Existem 46 pontos em todo o Brasil. Fora da garantia, a visita
       de diagnóstico custa R$ 90.
-    - Fundadores e direção. A empresa foi fundada por Helena Brandt e Rogério Tancredi.
+
+
+      ---
+
+
+      Fundadores e direção. A empresa foi fundada por Helena Brandt e Rogério Tancredi.
       Helena Brandt é a presidente desde a fundação. Rogério Tancredi deixou a sociedade
-      em 2020 e hoje dirige uma torrefação em Curitiba.
+      em 2020 e hoje dirige uma torrefação em Curitiba.'
   assert:
   - type: context-faithfulness
     threshold: 0.5
@@ -143,17 +179,26 @@ tests:
       a uma falha no anel de vedação da caldeira, que podia vazar vapor. O total de
       unidades afetadas foi de 18.000. Nenhum ferimento foi registrado em decorrência
       do problema.
-    context:
-    - Recall da K1. Em agosto de 2019 a Caffeo fez um recall voluntário de 18.000
-      unidades da Aurora K1 por falha no anel de vedação da caldeira, que podia vazar
-      vapor. Nenhum ferimento foi registrado. O custo do recall foi de aproximadamente
+    context: 'Recall da K1. Em agosto de 2019 a Caffeo fez um recall voluntário de
+      18.000 unidades da Aurora K1 por falha no anel de vedação da caldeira, que podia
+      vazar vapor. Nenhum ferimento foi registrado. O custo do recall foi de aproximadamente
       R$ 2,1 milhões.
-    - Aurora K1. A Aurora K1 foi a primeira cafeteira própria da Caffeo, lançada em
+
+
+      ---
+
+
+      Aurora K1. A Aurora K1 foi a primeira cafeteira própria da Caffeo, lançada em
       março de 2017. Tinha bomba de 9 bar e reservatório de 1,0 litro. Foi descontinuada
       em 2021.
-    - Qual a diferença para a Aurora K1?. A K2 tem bomba de 15 bar em vez de 9 bar,
+
+
+      ---
+
+
+      Qual a diferença para a Aurora K1?. A K2 tem bomba de 15 bar em vez de 9 bar,
       reservatório de 1,4 litro em vez de 1,0 litro e caldeira de aço inox. A K1 não
-      é mais fabricada, mas ainda tem peças de reposição até 2027.
+      é mais fabricada, mas ainda tem peças de reposição até 2027.'
   assert:
   - type: context-faithfulness
     threshold: 0.5
@@ -173,16 +218,25 @@ tests:
     response: Não, você nunca deve usar vinagre para descalcificar, pois ele danifica
       a vedação de silicone da caldeira. Além disso, a Aurora K2 funciona apenas com
       café moído e não aceita cápsulas.
-    context:
-    - 'Descalcificação. Descalcifique a cada 300 extrações ou quando a luz indicadora
-      piscar em vermelho. Use o descalcificante Aurora Clean ou ácido cítrico diluído
-      a 2%. Nunca use vinagre: ele danifica a vedação de silicone da caldeira.'
-    - A luz está piscando em vermelho. O que faço?. Luz vermelha piscando significa
+    context: 'Descalcificação. Descalcifique a cada 300 extrações ou quando a luz
+      indicadora piscar em vermelho. Use o descalcificante Aurora Clean ou ácido cítrico
+      diluído a 2%. Nunca use vinagre: ele danifica a vedação de silicone da caldeira.
+
+
+      ---
+
+
+      A luz está piscando em vermelho. O que faço?. Luz vermelha piscando significa
       que a máquina pede descalcificação. Siga o procedimento do manual. A luz volta
       ao normal depois de um ciclo completo de descalcificação.
-    - Posso usar cápsulas na Aurora K2?. Não. A Aurora K2 funciona apenas com café
+
+
+      ---
+
+
+      Posso usar cápsulas na Aurora K2?. Não. A Aurora K2 funciona apenas com café
       moído. Não existe adaptador oficial para cápsulas e o uso de adaptadores de
-      terceiros cancela a garantia.
+      terceiros cancela a garantia.'
   assert:
   - type: context-faithfulness
     threshold: 0.5
@@ -203,16 +257,25 @@ tests:
       grossa demais, que deixa o café aguado. Para resolver, verifique a moagem e
       utilize uma moagem fina, parecida com açúcar refinado, evitando que seja grossa
       demais.
-    context:
-    - 'Códigos de erro. E1: reservatório vazio ou mal encaixado. E2: pressão insuficiente,
-      verifique a moagem. E3: superaquecimento, aguarde 15 minutos. E4: falha na bomba,
-      procure a assistência.'
-    - Qual moagem devo usar?. Moagem fina, parecida com açúcar refinado. Moagem grossa
+    context: 'Códigos de erro. E1: reservatório vazio ou mal encaixado. E2: pressão
+      insuficiente, verifique a moagem. E3: superaquecimento, aguarde 15 minutos.
+      E4: falha na bomba, procure a assistência.
+
+
+      ---
+
+
+      Qual moagem devo usar?. Moagem fina, parecida com açúcar refinado. Moagem grossa
       demais causa café aguado e o código de erro E2. Moagem fina demais pode entupir
       o filtro.
-    - A luz está piscando em vermelho. O que faço?. Luz vermelha piscando significa
+
+
+      ---
+
+
+      A luz está piscando em vermelho. O que faço?. Luz vermelha piscando significa
       que a máquina pede descalcificação. Siga o procedimento do manual. A luz volta
-      ao normal depois de um ciclo completo de descalcificação.
+      ao normal depois de um ciclo completo de descalcificação.'
   assert:
   - type: context-faithfulness
     threshold: 0.5
@@ -230,15 +293,24 @@ tests:
     id: q8
     query: Qual é a capacidade do reservatório de água da Aurora K3?
     response: Não encontrei essa informação nas fontes disponíveis.
-    context:
-    - Aurora K2. A Aurora K2 foi lançada em outubro de 2021 como sucessora da K1.
-      As principais mudanças foram a bomba de 15 bar, o reservatório maior e a caldeira
-      de aço inox em lugar da de alumínio. Até dezembro de 2025 foram vendidas cerca
-      de 210.000 unidades.
-    - Qual a diferença para a Aurora K1?. A K2 tem bomba de 15 bar em vez de 9 bar,
+    context: 'Aurora K2. A Aurora K2 foi lançada em outubro de 2021 como sucessora
+      da K1. As principais mudanças foram a bomba de 15 bar, o reservatório maior
+      e a caldeira de aço inox em lugar da de alumínio. Até dezembro de 2025 foram
+      vendidas cerca de 210.000 unidades.
+
+
+      ---
+
+
+      Qual a diferença para a Aurora K1?. A K2 tem bomba de 15 bar em vez de 9 bar,
       reservatório de 1,4 litro em vez de 1,0 litro e caldeira de aço inox. A K1 não
       é mais fabricada, mas ainda tem peças de reposição até 2027.
-    - 'Especificações técnicas. A Aurora K2 é uma cafeteira de café moído com bomba
+
+
+      ---
+
+
+      Especificações técnicas. A Aurora K2 é uma cafeteira de café moído com bomba
       de 15 bar. Potência de 1.350 W, tensão bivolt automática (127 V e 220 V). Reservatório
       de água removível de 1,4 litro. Peso de 4,2 kg. Dimensões: 32 cm de altura,
       18 cm de largura e 30 cm de profundidade.'
@@ -260,14 +332,18 @@ tests:
     query: Qual é a pressão da bomba da Aurora K2 e quanto ela pesa?
     response: A pressão da bomba da Aurora K2 é de 15 bar. Não encontrei essa informação
       nas fontes disponíveis sobre o peso dela.
-    context:
-    - Aurora K2. A Aurora K2 foi lançada em outubro de 2021 como sucessora da K1.
-      As principais mudanças foram a bomba de 15 bar, o reservatório maior e a caldeira
-      de aço inox em lugar da de alumínio. Até dezembro de 2025 foram vendidas cerca
-      de 210.000 unidades.
-    - Qual a diferença para a Aurora K1?. A K2 tem bomba de 15 bar em vez de 9 bar,
+    context: 'Aurora K2. A Aurora K2 foi lançada em outubro de 2021 como sucessora
+      da K1. As principais mudanças foram a bomba de 15 bar, o reservatório maior
+      e a caldeira de aço inox em lugar da de alumínio. Até dezembro de 2025 foram
+      vendidas cerca de 210.000 unidades.
+
+
+      ---
+
+
+      Qual a diferença para a Aurora K1?. A K2 tem bomba de 15 bar em vez de 9 bar,
       reservatório de 1,4 litro em vez de 1,0 litro e caldeira de aço inox. A K1 não
-      é mais fabricada, mas ainda tem peças de reposição até 2027.
+      é mais fabricada, mas ainda tem peças de reposição até 2027.'
   assert:
   - type: context-faithfulness
     threshold: 0.5
@@ -287,11 +363,15 @@ tests:
     response: Se a água da sua cidade for dura, recomendamos descalcificar a cada
       150 extrações em vez de 300. Água dura acelera o acúmulo de calcário, e danos
       por calcário não são cobertos pela garantia.
-    context:
-    - A água da minha cidade é dura. Isso é um problema?. Água dura acelera o acúmulo
-      de calcário. Recomendamos usar água filtrada e descalcificar a cada 150 extrações
-      em vez de 300. Danos por calcário não são cobertos pela garantia.
-    - 'Descalcificação. Descalcifique a cada 300 extrações ou quando a luz indicadora
+    context: 'A água da minha cidade é dura. Isso é um problema?. Água dura acelera
+      o acúmulo de calcário. Recomendamos usar água filtrada e descalcificar a cada
+      150 extrações em vez de 300. Danos por calcário não são cobertos pela garantia.
+
+
+      ---
+
+
+      Descalcificação. Descalcifique a cada 300 extrações ou quando a luz indicadora
       piscar em vermelho. Use o descalcificante Aurora Clean ou ácido cítrico diluído
       a 2%. Nunca use vinagre: ele danifica a vedação de silicone da caldeira.'
   assert:
@@ -311,15 +391,19 @@ tests:
     id: q3
     query: Quanto tempo de garantia eu tenho na Aurora K2?
     response: Não encontrei essa informação nas fontes disponíveis.
-    context:
-    - 'Especificações técnicas. A Aurora K2 é uma cafeteira de café moído com bomba
-      de 15 bar. Potência de 1.350 W, tensão bivolt automática (127 V e 220 V). Reservatório
-      de água removível de 1,4 litro. Peso de 4,2 kg. Dimensões: 32 cm de altura,
-      18 cm de largura e 30 cm de profundidade.'
-    - Aurora K2. A Aurora K2 foi lançada em outubro de 2021 como sucessora da K1.
+    context: 'Especificações técnicas. A Aurora K2 é uma cafeteira de café moído com
+      bomba de 15 bar. Potência de 1.350 W, tensão bivolt automática (127 V e 220
+      V). Reservatório de água removível de 1,4 litro. Peso de 4,2 kg. Dimensões:
+      32 cm de altura, 18 cm de largura e 30 cm de profundidade.
+
+
+      ---
+
+
+      Aurora K2. A Aurora K2 foi lançada em outubro de 2021 como sucessora da K1.
       As principais mudanças foram a bomba de 15 bar, o reservatório maior e a caldeira
       de aço inox em lugar da de alumínio. Até dezembro de 2025 foram vendidas cerca
-      de 210.000 unidades.
+      de 210.000 unidades.'
   assert:
   - type: context-faithfulness
     threshold: 0.5
@@ -338,13 +422,17 @@ tests:
     query: Quem fundou a Caffeo Brasil e quem a preside hoje?
     response: A empresa foi fundada por Helena Brandt e Rogério Tancredi. Helena Brandt
       é a presidente desde a fundação.
-    context:
-    - Como estender a garantia?. Quem cadastra a máquina no site da Caffeo em até
-      30 dias após a compra ganha 12 meses adicionais, totalizando 24 meses de garantia.
-      O cadastro pede o número de série e a nota fiscal.
-    - Fundadores e direção. A empresa foi fundada por Helena Brandt e Rogério Tancredi.
+    context: 'Como estender a garantia?. Quem cadastra a máquina no site da Caffeo
+      em até 30 dias após a compra ganha 12 meses adicionais, totalizando 24 meses
+      de garantia. O cadastro pede o número de série e a nota fiscal.
+
+
+      ---
+
+
+      Fundadores e direção. A empresa foi fundada por Helena Brandt e Rogério Tancredi.
       Helena Brandt é a presidente desde a fundação. Rogério Tancredi deixou a sociedade
-      em 2020 e hoje dirige uma torrefação em Curitiba.
+      em 2020 e hoje dirige uma torrefação em Curitiba.'
   assert:
   - type: context-faithfulness
     threshold: 0.5
@@ -364,15 +452,19 @@ tests:
     response: Em agosto de 2019, a Caffeo fez um recall voluntário da Aurora K1 devido
       a uma falha no anel de vedação da caldeira, que podia vazar vapor. No total,
       18.000 unidades foram afetadas por esse problema.
-    context:
-    - Recall da K1. Em agosto de 2019 a Caffeo fez um recall voluntário de 18.000
-      unidades da Aurora K1 por falha no anel de vedação da caldeira, que podia vazar
-      vapor. Nenhum ferimento foi registrado. O custo do recall foi de aproximadamente
+    context: 'Recall da K1. Em agosto de 2019 a Caffeo fez um recall voluntário de
+      18.000 unidades da Aurora K1 por falha no anel de vedação da caldeira, que podia
+      vazar vapor. Nenhum ferimento foi registrado. O custo do recall foi de aproximadamente
       R$ 2,1 milhões.
-    - Aurora K2. A Aurora K2 foi lançada em outubro de 2021 como sucessora da K1.
+
+
+      ---
+
+
+      Aurora K2. A Aurora K2 foi lançada em outubro de 2021 como sucessora da K1.
       As principais mudanças foram a bomba de 15 bar, o reservatório maior e a caldeira
       de aço inox em lugar da de alumínio. Até dezembro de 2025 foram vendidas cerca
-      de 210.000 unidades.
+      de 210.000 unidades.'
   assert:
   - type: context-faithfulness
     threshold: 0.5
@@ -390,13 +482,17 @@ tests:
     id: q6
     query: Posso usar vinagre para descalcificar e a máquina aceita cápsulas?
     response: Não encontrei essa informação nas fontes disponíveis.
-    context:
-    - Posso usar cápsulas na Aurora K2?. Não. A Aurora K2 funciona apenas com café
-      moído. Não existe adaptador oficial para cápsulas e o uso de adaptadores de
-      terceiros cancela a garantia.
-    - Fundadores e direção. A empresa foi fundada por Helena Brandt e Rogério Tancredi.
+    context: 'Posso usar cápsulas na Aurora K2?. Não. A Aurora K2 funciona apenas
+      com café moído. Não existe adaptador oficial para cápsulas e o uso de adaptadores
+      de terceiros cancela a garantia.
+
+
+      ---
+
+
+      Fundadores e direção. A empresa foi fundada por Helena Brandt e Rogério Tancredi.
       Helena Brandt é a presidente desde a fundação. Rogério Tancredi deixou a sociedade
-      em 2020 e hoje dirige uma torrefação em Curitiba.
+      em 2020 e hoje dirige uma torrefação em Curitiba.'
   assert:
   - type: context-faithfulness
     threshold: 0.5
@@ -414,14 +510,18 @@ tests:
     id: q7
     query: O que significa o código de erro E2 e como resolver?
     response: Não encontrei essa informação nas fontes disponíveis.
-    context:
-    - 'Especificações técnicas. A Aurora K2 é uma cafeteira de café moído com bomba
-      de 15 bar. Potência de 1.350 W, tensão bivolt automática (127 V e 220 V). Reservatório
-      de água removível de 1,4 litro. Peso de 4,2 kg. Dimensões: 32 cm de altura,
-      18 cm de largura e 30 cm de profundidade.'
-    - Preparo do café. Use de 7 g a 9 g de café moído fino por dose. Compacte com
+    context: 'Especificações técnicas. A Aurora K2 é uma cafeteira de café moído com
+      bomba de 15 bar. Potência de 1.350 W, tensão bivolt automática (127 V e 220
+      V). Reservatório de água removível de 1,4 litro. Peso de 4,2 kg. Dimensões:
+      32 cm de altura, 18 cm de largura e 30 cm de profundidade.
+
+
+      ---
+
+
+      Preparo do café. Use de 7 g a 9 g de café moído fino por dose. Compacte com
       o tamper que acompanha a máquina. Encaixe o porta-filtro girando para a direita
-      até travar. Pressione o botão de uma xícara (30 ml) ou de duas xícaras (60 ml).
+      até travar. Pressione o botão de uma xícara (30 ml) ou de duas xícaras (60 ml).'
   assert:
   - type: context-faithfulness
     threshold: 0.5
@@ -439,11 +539,15 @@ tests:
     id: q8
     query: Qual é a capacidade do reservatório de água da Aurora K3?
     response: Não encontrei essa informação nas fontes disponíveis.
-    context:
-    - Qual a diferença para a Aurora K1?. A K2 tem bomba de 15 bar em vez de 9 bar,
-      reservatório de 1,4 litro em vez de 1,0 litro e caldeira de aço inox. A K1 não
-      é mais fabricada, mas ainda tem peças de reposição até 2027.
-    - 'Especificações técnicas. A Aurora K2 é uma cafeteira de café moído com bomba
+    context: 'Qual a diferença para a Aurora K1?. A K2 tem bomba de 15 bar em vez
+      de 9 bar, reservatório de 1,4 litro em vez de 1,0 litro e caldeira de aço inox.
+      A K1 não é mais fabricada, mas ainda tem peças de reposição até 2027.
+
+
+      ---
+
+
+      Especificações técnicas. A Aurora K2 é uma cafeteira de café moído com bomba
       de 15 bar. Potência de 1.350 W, tensão bivolt automática (127 V e 220 V). Reservatório
       de água removível de 1,4 litro. Peso de 4,2 kg. Dimensões: 32 cm de altura,
       18 cm de largura e 30 cm de profundidade.'
