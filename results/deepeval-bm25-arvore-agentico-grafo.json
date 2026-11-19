@@ -1,0 +1,546 @@
+[
+  {
+    "modo": "bm25",
+    "id": "q1",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.5,
+      "context_recall": 0.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses all parts of the input regarding the Aurora K2's pump pressure and weight without including any irrelevant information.",
+      "context_precision": "The score is 0.50 because while the second node in the retrieval contexts is relevant, stating 'O texto é útil porque menciona que a Aurora K2 possui uma 'bomba de 15 bar'.', it is not ranked first. Instead, the first node in the retrieval contexts, which is irrelevant because 'O texto menciona códigos de erro, mas não fornece informações sobre a pressão da bomba ou o peso da Aurora K2.', is incorrectly placed above it. Additionally, the third node in the retrieval contexts is also irrelevant as 'O texto menciona características da K2 em comparação com a K1, mas não contém informações sobre o peso da máquina.', and should be ranked lower than the relevant node.",
+      "context_recall": "The score is 0.00 because the machine weight mentioned in the expected output is absent from the nodes in the retrieval context."
+    }
+  },
+  {
+    "modo": "bm25",
+    "id": "q2",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 0.50 because, while it partially addresses the question about descaling frequency, it includes a repetitive statement that fails to provide actionable advice.",
+      "context_precision": "The score is 1.00 because all the relevant retrieval context nodes are perfectly ranked at the top, allowing the model to seamlessly access the exact descaling frequency for hard water in the first node ('Recomendamos usar água filtrada e descalcificar a cada 150 extrações em vez de 300') and the standard baseline in the second node, while successfully placing the irrelevant third node—which only discusses warranty terms—at the very bottom. Stellar retrieval precision!",
+      "context_recall": "The score is 1.00 because all information in the expected output is fully supported by the 1st node in the retrieval context. Great job!"
+    }
+  },
+  {
+    "modo": "bm25",
+    "id": "q3",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.5,
+      "context_recall": 0.5
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses the user's question about the warranty period for the Aurora K2 without including any irrelevant information.",
+      "context_precision": "The score is 0.50 because the relevant node in the retrieval contexts (the second node) is not ranked at the top. It should be ranked higher than the irrelevant nodes, such as the first node because 'The text discusses capsule usage and adapters, which is irrelevant to the warranty duration of the Aurora K2', and the third node because 'The text is about the 'Modo de economia de energia', which has nothing to do with the warranty length'.",
+      "context_recall": "The score is 0.50 because sentence 1 in the expected output is supported by the 2nd node in the retrieval context, while sentence 2 regarding the extra 12 months of warranty cannot be found in any node in the retrieval context."
+    }
+  },
+  {
+    "modo": "bm25",
+    "id": "q4",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 0.00 because the actual output incorrectly claims that the information regarding Caffeo could not be found, whereas the retrieval context actually contains diverse details about it.",
+      "answer_relevancy": "The score is 1.00 because the actual output directly and accurately answers both parts of the input without including any irrelevant information.",
+      "context_precision": "The score is 0.00 because all retrieval context nodes are irrelevant. Specifically, the first node discusses how to extend the warranty, which \"não tem relação com quem fundou ou preside a Caffeo Brasil\". The second node talks about technical assistance, and the third node mentions that \"A Caffeo Brasil é uma fabricante de eletrodomésticos para café fundada em 2014\", but \"não cita os nomes de Helena Brandt ou Rogério Tancredi que constam na saída esperada\". None of the nodes provide the necessary answers, resulting in a score of zero.",
+      "context_recall": "The score is 0.00 because sentences 1 and 2 of the expected output regarding the founders and the president cannot be attributed to any information in the 3rd node in the retrieval context."
+    }
+  },
+  {
+    "modo": "bm25",
+    "id": "q5",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with zero contradictions!",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses all parts of the user's input regarding the Aurora K1 recall without including any irrelevant information. Great job!",
+      "context_precision": "The score is 1.00 because the first retrieval context node perfectly answers why the Aurora K1 was recalled (\"falha no anel de vedação da caldeira, que podia vazar vapor\") and how many units were affected (\"18.000 unidades\"), and it is correctly ranked above the irrelevant nodes. The second retrieval context node (\"It discusses the successor Aurora K2, which is not relevant to the recall of the Aurora K1.\") and the third retrieval context node (\"It provides general background information about the Aurora K1's launch and specifications, but does not mention the recall.\") correctly appear lower in the rankings!",
+      "context_recall": "The score is 1.00 because all information in the expected output is fully supported by node(s) in retrieval context! Fantastic job retrieving all the exact details!"
+    }
+  },
+  {
+    "modo": "bm25",
+    "id": "q6",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 0.667,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.5
+    },
+    "detalhes": {
+      "faithfulness": "The score is 0.67 because the actual output incorrectly states that the information was not found in the available sources, whereas the context actually contains specific facts about the Aurora K2.",
+      "answer_relevancy": "The score is 1.00 because the output directly and accurately addresses both parts of the user's input regarding descaling with vinegar and capsule compatibility without any irrelevant information.",
+      "context_precision": "The score is 1.00 because all relevant nodes containing information about capsules and descalcification are perfectly ranked above the irrelevant node discussing the milk frother.",
+      "context_recall": "The score is 0.50 because sentence 1 regarding vinegar damaging the silicone seal cannot be attributed to any node(s) in retrieval context, while sentence 2 is successfully supported by the 1st node in the retrieval context."
+    }
+  },
+  {
+    "modo": "bm25",
+    "id": "q7",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 0.5,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 0.50 because the actual output incorrectly recommends using a fine grind like refined sugar to fix error code E2, whereas the context states that error E2 is actually caused by the grind being too coarse, and that too fine of a grind can clog the filter.",
+      "answer_relevancy": "The score is 1.00 because the output directly and comprehensively addresses the input regarding the meaning and solution for error code E2, with no irrelevant statements included. Great job!",
+      "context_precision": "The score is 1.00 because all relevant nodes are perfectly positioned above any irrelevant ones! The first node correctly explains that 'Moagem grossa demais causa café aguado e o código de erro E2' and the second node directly defines that 'E2: pressão insuficiente, verifique a moagem', and both are ranked higher than the third node, which only discusses 'luz vermelha piscando e descalcificação, o que não tem relação com o código de erro E2.' Fantastic retrieval performance!",
+      "context_recall": "The score is 1.00 because all sentences in the expected output—specifically sentence 1 regarding E2 being insufficient pressure (supported by node 2 in the retrieval context), sentence 2 regarding the common cause of a too coarse grind (supported by node 1), and sentence 3 regarding the solution to use a fine grind (supported by node 1)—are fully accounted for with flying colors!"
+    }
+  },
+  {
+    "modo": "bm25",
+    "id": "q8",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 0.00 because the actual output incorrectly claims that the information was not found, whereas the retrieval context actually contains several detailed pieces of information about the Aurora K2 and Aurora K3 coffee makers and their cleaning instructions.",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses the input without containing any irrelevant statements.",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts is ranked at the top and directly supports the expected output by stating that 'A Caffeo anunciou em 2025 que desenvolve a Aurora K3... Nenhuma especificação foi divulgada'. This ensures that the only relevant information is prioritized above the irrelevant nodes, which are correctly ranked lower: the second node in the retrieval contexts discusses cleaning the 'reservatório com água' for general maintenance rather than the capacity of the Aurora K3 water reservoir, and the third node in the retrieval contexts provides technical specifications for the 'Aurora K2' (such as 'Reservatório de água removível de 1,4 litro'), which is a different model. Perfect retrieval precision!",
+      "context_recall": "The score is 1.00 because all sentences in the expected output are fully supported by the information found in the 1st node in the retrieval context! Excellent retrieval!"
+    }
+  },
+  {
+    "modo": "arvore",
+    "id": "q1",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses all parts of the input regarding the Aurora K2's pump pressure and weight without including any irrelevant information. Great job!",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts successfully provides the exact information needed regarding the pump pressure and weight of the Aurora K2, stating that 'O documento fornece todas as informações necessárias sobre a Aurora K2, especificando que ela possui uma 'bomba de 15 bar' e um 'Peso de 4,2 kg', o que corresponde exatamente ao resultado esperado.'!",
+      "context_recall": "The score is 1.00 because all information in the expected output is fully supported by node(s) in the retrieval context, specifically confirming the 15 bar pump and 4.2 kg weight of the Aurora K2!"
+    }
+  },
+  {
+    "modo": "arvore",
+    "id": "q2",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.5,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses the question about descaling the Aurora K2 with hard water, with zero irrelevant statements.",
+      "context_precision": "The score is 0.50 because the irrelevant first node, which states 'O contexto menciona a base geral de 'Descalcifique a cada 300 extrações', mas não é o mais específico para a condição de água dura.', is ranked higher than the relevant second node, which states 'O texto afirma diretamente que 'Água dura acelera o acúmulo de calcário. Recomendamos usar água filtrada e descalcificar a cada 150 extrações em vez de 300', o que corresponde exatamente à resposta esperada.'.",
+      "context_recall": "The score is 1.00 because all information in sentence 1 of the expected output is fully supported by the 2nd node in the retrieval context, ensuring perfect recall!"
+    }
+  },
+  {
+    "modo": "arvore",
+    "id": "q3",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions detected. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses the user's question about the warranty period without any irrelevant information.",
+      "context_precision": "The score is 1.00 because all relevant nodes are perfectly ranked at the top! The first node explicitly states that 'A Aurora K2 tem garantia legal e contratual de 12 meses contra defeitos de fabricação', and the second node usefully details that 'Quem cadastra a máquina no site da Caffeo em até 30 dias após a compra ganha 12 meses adicionais, totalizando 24 meses de garantia'.",
+      "context_recall": "The score is 1.00 because all information in the expected output is fully supported by the 1st and 2nd nodes in the retrieval context. Fantastic job!"
+    }
+  },
+  {
+    "modo": "arvore",
+    "id": "q4",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the response directly and accurately answers both parts of the user's input without including any irrelevant statements.",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts perfectly answers the input by stating that 'A empresa foi fundada por Helena Brandt e Rogério Tancredi' and that 'Helena Brandt é a presidente desde a fundação.'!",
+      "context_recall": "The score is 1.00 because all information regarding the founding of Caffeo Brasil and Helena Brandt's presidency in the expected output is fully supported by the 1st node in the retrieval context. Excellent retrieval performance!"
+    }
+  },
+  {
+    "modo": "arvore",
+    "id": "q5",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses all parts of the user's input without including any irrelevant information. Great job!",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts successfully and directly addresses the input by explaining that 'Em agosto de 2019 a Caffeo fez um recall voluntário de 18.000 unidades da Aurora K1 por falha no anel de vedação da caldeira, que podia vazar vapor', providing both the reason for the recall and the number of affected units perfectly right at the top!",
+      "context_recall": "The score is 1.00 because all sentences in the expected output are fully supported by the 1st node in the retrieval context. Fantastic job!"
+    }
+  },
+  {
+    "modo": "arvore",
+    "id": "q6",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and accurately addresses both parts of the user's input regarding using vinegar for descaling and the machine's capsule compatibility, with no irrelevant statements.",
+      "context_precision": "The score is 1.00 because all relevant retrieval context nodes are perfectly ranked at the top, with the first node explicitly stating 'Nunca use vinagre: ele danifica a vedação de silicone da caldeira.' and the second node confirming that 'A Aurora K2 funciona apenas com café moído. Não existe adaptador oficial para cápsulas', addressing the input wonderfully!",
+      "context_recall": "The score is 1.00 because all sentences in the expected output are fully supported by the information found in node(s) in retrieval context 1 and 2, ensuring perfect recall!"
+    }
+  },
+  {
+    "modo": "arvore",
+    "id": "q7",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.333
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the response perfectly and directly addresses the user's question about the meaning and solution for error code E2, with zero irrelevant statements.",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts perfectly answers the user's question about the error code E2, stating that it means 'pressão insuficiente, verifique a moagem', and provides the necessary solution in its reason!",
+      "context_recall": "The score is 0.33 because sentence 1 in the expected output is successfully attributed to node 1 in the retrieval context, but sentences 2 and 3 cannot be attributed to the 1st node in the retrieval context as they contain unmentioned details about the common cause and specific grinding solution."
+    }
+  },
+  {
+    "modo": "arvore",
+    "id": "q8",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 0.00 because the actual output fails to include the specific information from the retrieval context regarding the Aurora K3, such as its development by Caffeo in 2025, its integrated grinder, and its projected launch in 2027.",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses the input without containing any irrelevant information.",
+      "context_precision": "The score is 1.00 because the only retrieval context is directly relevant and ranked first, providing the necessary information!",
+      "context_recall": "The score is 1.00 because all sentences in the expected output—specifically sentence 1 and sentence 2—are fully supported by the 1st node in the retrieval context. Outstanding job!"
+    }
+  },
+  {
+    "modo": "agentico",
+    "id": "q1",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with zero contradictions!",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses all parts of the input regarding the Aurora K2's pump pressure and weight without including any irrelevant information.",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts successfully and directly provides all the necessary information, stating that 'A Aurora K2 é uma cafeteira de café moído com bomba de 15 bar' and that it has a 'Peso de 4,2 kg', perfectly answering both parts of the input right at the top!",
+      "context_recall": "The score is 1.00 because all information regarding the Aurora K2 pump pressure and weight in sentence 1 of the expected output is fully supported by the 1st node in the retrieval context. Excellent!"
+    }
+  },
+  {
+    "modo": "agentico",
+    "id": "q2",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the response directly and accurately addresses the user's question regarding the descaling frequency for the Aurora K2 with hard water, containing no irrelevant information.",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts correctly answers the question, stating that 'Recomendamos usar água filtrada e descalcificar a cada 150 extrações em vez de 300' for hard water, and it is perfectly ranked above the second node, which only mentions the general standard of 'Descalcifique a cada 300 extrações'. Fantastic retrieval!",
+      "context_recall": "The score is 1.00 because all information in the expected output is fully supported by node(s) in the retrieval context, ensuring perfect recall!"
+    }
+  },
+  {
+    "modo": "agentico",
+    "id": "q3",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.5
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and accurately addresses the user's question regarding the warranty period of the Aurora K2 without any irrelevant information.",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts is directly relevant, stating that 'A Aurora K2 tem garantia legal e contratual de 12 meses contra defeitos de fabricação', successfully answering the user's question on the first try!",
+      "context_recall": "The score is 0.50 because sentence 1 in the expected output is supported by information in the 1st node in the retrieval context regarding the standard warranty, but sentence 2 lacks any supporting information in the retrieval context about registering the machine for an extended warranty."
+    }
+  },
+  {
+    "modo": "agentico",
+    "id": "q4",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions detected. Great job!",
+      "answer_relevancy": "The score is 1.00 because the actual output completely and accurately addresses the input without containing any irrelevant statements.",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts is directly relevant, successfully providing both the founders and the current president as requested!",
+      "context_recall": "The score is 1.00 because all sentences in the expected output are fully supported by the 1st node in the retrieval context. Fantastic job!"
+    }
+  },
+  {
+    "modo": "agentico",
+    "id": "q5",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses all parts of the input regarding the Aurora K1 recall without including any irrelevant information.",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts is directly relevant, perfectly addressing the recall reason ('falha no anel de vedação da caldeira, que podia vazar vapor') and the affected units ('18.000 unidades') right at the top! Outstanding retrieval performance!",
+      "context_recall": "The score is 1.00 because all sentences in the expected output are fully supported by node(s) in the retrieval context, ensuring a complete and accurate retrieval!"
+    }
+  },
+  {
+    "modo": "agentico",
+    "id": "q6",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and accurately addresses the user's question about using vinegar for descaling in a capsule coffee machine without including any irrelevant information.",
+      "context_precision": "The score is 1.00 because all relevant nodes are perfectly ranked at the top! The first retrieval context node directly states 'Nunca use vinagre: ele danifica a vedação de silicone da caldeira', and the second retrieval context node clearly answers whether the machine accepts capsules by stating 'Não. A Aurora K2 funciona apenas com café moído. Não existe adaptador oficial para cápsulas'.",
+      "context_recall": "The score is 1.00 because all information in the expected output is fully supported by the nodes in the retrieval context: the first sentence is backed by the 1st node regarding the damage caused by vinegar, and the second sentence is confirmed by the 2nd node regarding the use of ground coffee."
+    }
+  },
+  {
+    "modo": "agentico",
+    "id": "q7",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the response is completely relevant to the input, directly addressing the meaning of the E2 error code and how to resolve it without any extraneous information.",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts is directly relevant, perfectly addressing the meaning and solution for the error code E2 by explaining that it is 'pressão insuficiente' and advising to 'verifique a moagem'! Stellar retrieval!",
+      "context_recall": "The score is 1.00 because all sentences in the expected output—identifying E2 as insufficient pressure (sentence 1), pointing to a too-coarse grind as the common cause (sentence 2), and suggesting a fine grind similar to refined sugar as the solution (sentence 3)—are fully supported by information found in the 1st node in the retrieval context."
+    }
+  },
+  {
+    "modo": "agentico",
+    "id": "q8",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 0.00 because the actual output incorrectly states that the Aurora K3 was developed by Caffeo in 2025 with an integrated grinder and a launch scheduled for 2027, which contradicts the retrieval context.",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses the input without containing any irrelevant information. Great job!",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts is directly relevant, perfectly capturing the lack of information regarding the water reservoir capacity of the Aurora K3 with the reason: \"O contexto menciona que a 'Aurora K3' foi anunciada para '2027' e afirma explicitamente que 'Nenhuma especificação foi divulgada', o que sustenta diretamente a resposta esperada de que não há essa informação sobre a capacidade do reservatório.\"",
+      "context_recall": "The score is 1.00 because all information regarding the Aurora K3 being announced for 2027 with no specifications is fully supported by the 1st node in the retrieval context. Perfect recall!"
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q1",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions detected. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses all parts of the input regarding the Aurora K2's pump pressure and weight without including any irrelevant information. Great job!",
+      "context_precision": "The score is 1.00 because all the relevant nodes containing the required information are perfectly ranked at the very top, ensuring optimal precision right out of the gate!",
+      "context_recall": "The score is 0.00 because, while the first part about the Aurora K2 pump having 15 bar can be attributed to node(s) in retrieval context 1, the claim regarding the machine weighing 4.2 kg cannot be found in any of the retrieval contexts."
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q2",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.833,
+      "context_recall": 0.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the response directly and accurately addresses the user's question regarding the descaling frequency for the Aurora K2 with hard water, containing no irrelevant statements.",
+      "context_precision": "The score is 0.83 because the first node is relevant, stating that one should 'Descalcifique a cada 300 extrações'. The third node is also relevant, mentioning 'obstrução por água com alto teor de calcário'. However, the score is not higher because the second node, which discusses the 'Recall da K1', is irrelevant to the frequency of descaling the Aurora K2 and is ranked higher than the third relevant node.",
+      "context_recall": "The score is 0.00 because the sentence in the expected output regarding the 150-extraction interval for hard water cannot be attributed to any node in the retrieval context, as the 1st node only mentions a 300-extraction interval and the 3rd node only mentions obstruction due to high limestone water without specifying the number."
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q3",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 0.00 because the actual output incorrectly claims that the information was not found, whereas the retrieval context actually contains various details about both the Aurora K1 and Aurora K3.",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses the user's question without including any irrelevant information. Great job!",
+      "context_precision": "The score is 0.00 because all retrieved nodes are irrelevant to the input about the warranty time of the Aurora K2. Specifically, the first node discusses the 'Recall da K1' (\"O texto fala sobre o 'Recall da K1' e não menciona informações sobre o tempo de garantia da Aurora K2.\"), the second node covers 'Descalcificação' (\"O texto trata sobre 'Descalcificação' e cuidados com a máquina, sem conter dados sobre o tempo de garantia da Aurora K2.\"), and the third node mentions 'Produtos futuros' (\"O texto menciona 'Produtos futuros' como a Aurora K3, não fornecendo nenhuma informação relacionada ao tempo de garantia da Aurora K2.\"). As there are no relevant nodes ranked in the retrieval contexts, the contextual precision score is zero.",
+      "context_recall": "The score is 0.00 because the information regarding the 12-month standard warranty and the 24-month extended warranty upon registration in the expected output cannot be found in any of the nodes in retrieval context, which only cover product recalls and descalcification instructions."
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q4",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 0.00 because the actual output incorrectly claims that the information was not found, whereas the context actually provides details regarding the warranty, production, employees, components, price, and sales locations of the Aurora K2.",
+      "answer_relevancy": "The score is 1.00 because the response directly and accurately addresses both parts of the input question without any irrelevant statements.",
+      "context_precision": "The score is 0.00 because all retrieval context nodes are irrelevant to the input. Specifically, the first node discusses how to extend the warranty for Caffeo machines, the second node discusses the factory in Caxias do Sul and component sourcing, and the third node discusses the price and sales channels of the Aurora K2, none of which provide information on who founded Caffeo Brasil or who presides over it today.",
+      "context_recall": "The score is 0.00 because the 1st sentence regarding the founders and the 2nd sentence regarding the company president cannot be attributed to any information across all nodes in the retrieval context."
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q5",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.5,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely accurate and perfectly aligned with the retrieval context. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and accurately answers both parts of the input regarding the reason for the Aurora K1 recall and the number of affected units without any irrelevant information. Great job!",
+      "context_precision": "The score is 0.50 because the second retrieval node, which directly answers the question about the Aurora K1 recall and affected units, is ranked second instead of first. It should be ranked higher than the first retrieval node, which only talks about 'Aurora K2 and its differences from the K1, which is not about the recall of the K1,' and the third retrieval node, which 'discusses descaling instructions ('Descalcificação') and does not mention the K1 recall or affected units.'",
+      "context_recall": "The score is 1.00 because all information regarding the August 2019 recall (sentences 1 and 2) is fully supported by node 2 in the retrieval context. Excellent job!"
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q6",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.333
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is completely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and accurately answers both parts of the user's question regarding descaling with vinegar and capsule compatibility without any irrelevant information.",
+      "context_precision": "The score is 1.00 because the first node in the retrieval contexts is the only relevant one, correctly explaining that 'Nunca use vinagre: ele danifica a vedação de silicone da caldeira.' It successfully outranks the second node, which discusses daily cleaning that 'is not relevant to whether the machine accepts capsules or if vinegar can be used for descaling,' and the third node, which merely mentions that warranty doesn't cover 'uso de descalcificante inadequado' without addressing the specific question. Stellar retrieval performance!",
+      "context_recall": "The score is 0.33 because sentence 1 is successfully attributed to node 1 in the retrieval context, which explains that vinegar damages the silicone seal, but sentences 2 and 3 lack matching information in the context."
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q7",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "detalhes": {
+      "faithfulness": "The score is 1.00 because the actual output is entirely faithful to the retrieval context with no contradictions found. Great job!",
+      "answer_relevancy": "The score is 1.00 because the output directly and comprehensively answers what the error code E2 means and how to resolve it, with no irrelevant statements.",
+      "context_precision": "The score is 1.00 because all retrieval contexts are perfectly relevant and ranked in the ideal order! The first node correctly explains that 'O texto explica diretamente o significado do código de erro ao afirmar que 'E2: pressão insuficiente, verifique a moagem.'', and the second node provides the exact solution by stating that 'Moagem grossa demais causa café aguado e o código de erro E2' and that the correct one is 'Moagem fina, parecida com açúcar refinado.'.",
+      "context_recall": "The score is 1.00 because all sentences in the expected output are fully supported by the nodes in retrieval context, with sentence 1 matched to the 1st node, and sentences 2 and 3 successfully matched to the 2nd node! Fantastic job!"
+    }
+  },
+  {
+    "modo": "grafo",
+    "id": "q8",
+    "ferramenta": "deepeval",
+    "scores": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.0,
+      "context_recall": 0.5
+    },
+    "detalhes": {
+      "faithfulness": "The score is 0.00 because the actual output incorrectly claims that no information was found, whereas the context actually contains various details about the K1 and K2 coffee makers.",
+      "answer_relevancy": "The score is 1.00 because the output directly and completely addresses the input without containing any irrelevant statements. Excellent job!",
+      "context_precision": "The score is 0.00 because all nodes in the retrieval contexts are irrelevant. Specifically, the first node states that \"não há essa informação\" regarding the water reservoir capacity of the Aurora K3, the second node discusses \"Recall da K1\" which is irrelevant, and the third node addresses hard water and limescale without containing information about the Aurora K3.",
+      "context_recall": "The score is 0.50 because sentence 1 correctly indicates that the information is missing based on node(s) in retrieval context, while sentence 2 incorrectly claims the Aurora K3 was announced for 2027, which is not supported by any of the nodes."
+    }
+  }
+]

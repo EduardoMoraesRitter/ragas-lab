@@ -39,3 +39,10 @@ Pedido do Eduardo em 18/11/2026: melhorar o design no estilo do site, publicar o
 - Item 7: build sem erro; conferido no Chrome em tema escuro, claro, celular de 390 px (sem rolagem lateral) e em inglês.
 - DeepEval nas técnicas novas: 1ª tentativa deu 429 em todas as chamadas (cota diária de 500 do gemini-3.5-flash-lite). Retomada agendada para 05:05 de 19/11, com o mesmo juiz. O script agora retoma só as notas vazias.
 - Falta: DeepEval, reexportar os dados para o site, itens 3, 8 e 9.
+
+## Andamento (19/11/2026, 05h)
+
+- 2ª tentativa do DeepEval (05:05): 59 de 128 notas. As outras 69 deram 429 do limite por minuto, não do diário (uma chamada de teste às 05:15 passou).
+- Correção: o script agora espera 40 s e tenta de novo até 4 vezes no 429. 3ª tentativa rodando com pausa de 5 s, só nas notas vazias.
+- 3ª tentativa (05:15 a 05:31): 127 de 128 notas. 4ª tentativa refez a única nota com JSON inválido. DeepEval completo.
+- Resultado mudou o topo: agêntica 0,92, árvore 0,91 (DeepEval prefere a agêntica, Ragas a árvore). Veredito do site, README e RELATORIO trocados para "empate no topo". Grafo fica abaixo do piso em cada avaliador sozinho; isso foi escrito no README e no RELATORIO.

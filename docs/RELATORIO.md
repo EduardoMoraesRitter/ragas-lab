@@ -164,12 +164,36 @@ Juiz: Gemini 3.1 Flash Lite nas quatro técnicas novas; Gemini 3.5 Flash Lite em
 
 ### Leitura
 
-- **A árvore venceu.** O LLM lê o sumário e aponta a seção certa, e quase nunca traz trecho sobrando. Este corpus favorece a árvore: seções curtas, com título claro e um assunto cada.
-- **A agêntica chega perto**, mas gasta de 2 a 7 chamadas de LLM por pergunta. A árvore gasta 1.
+- **Empate no topo entre árvore e agêntica.** Com os dois avaliadores juntos, a agêntica fica com 0,92 e a árvore com 0,91. O Ragas pôs a árvore na frente e o DeepEval pôs a agêntica. Este corpus favorece as duas: seções curtas, com título claro e um assunto cada.
+- **A árvore custa menos.** Ela gasta 1 chamada de LLM por pergunta. A agêntica gasta de 2 a 7.
 - **O vetor acha a resposta, mas traz trecho sobrando.** Cobertura alta, precisão média: dos 3 trechos, 1 ou 2 sobram.
 - **O BM25 perde quando a palavra muda de forma.** "Pesa" não casa com "peso", nem "descalcificar" com "descalcificação". Sem stemming, a palavra exata falha.
 - **O grafo ficou no piso.** 30 trechos geram poucas relações úteis. A extração criou 92 nós, e "Aurora K2" virou um nó ligado a quase tudo. O grafo precisa de dado com muitas entidades ligadas entre si.
 
-### DeepEval nas técnicas novas
+### DeepEval nas técnicas novas (média das 8 perguntas)
 
-Pendente. A primeira tentativa, em 18/11/2026, bateu no limite diário do Gemini 3.5 Flash Lite (500 pedidos) e devolveu só erros 429. A retomada está agendada para depois da renovação da cota, com o mesmo juiz das rodadas antigas do DeepEval.
+| Técnica | Precisão do contexto | Cobertura do contexto | Fidelidade | Relevância |
+|---|---|---|---|---|
+| Árvore | 0,94 | 0,92 | 0,88 | 1,00 |
+| Agêntica | 1,00 | 0,94 | 0,88 | 1,00 |
+| Vetor | 0,77 | 0,81 | 0,88 | 0,96 |
+| BM25 | 0,75 | 0,63 | 0,65 | 0,94 |
+| Grafo | 0,54 | 0,35 | 0,63 | 1,00 |
+| Palavras (piso) | 0,50 | 0,42 | 0,50 | 0,96 |
+
+Juiz: Gemini 3.5 Flash Lite, o mesmo das rodadas antigas do DeepEval. Rodado em 19/11/2026, em 4 tentativas. A 1ª bateu na cota diária. A 2ª e a 3ª bateram no limite por minuto, e o script passou a esperar 40 s e tentar de novo no erro 429. A 4ª refez a única nota em que o juiz devolveu JSON inválido.
+
+### Nota da busca com os dois avaliadores
+
+Nota da busca = média de precisão e cobertura do contexto. Cada métrica é a média entre os avaliadores que rodaram na técnica. Vetor e piso também têm Promptfoo.
+
+| Posição | Técnica | Nota da busca |
+|---|---|---|
+| 1 | Agêntica | 0,92 |
+| 2 | Árvore | 0,91 |
+| 3 | Vetor | 0,66 |
+| 4 | BM25 | 0,65 |
+| 5 | Grafo | 0,42 |
+| 6 | Palavras (piso) | 0,39 |
+
+O DeepEval dá notas mais altas que o Ragas em quase tudo. A ordem das técnicas é a mesma nos dois, com uma troca no 1º e no 2º lugar. Nos dois, o grafo fica abaixo do piso: Ragas 0,39 contra 0,45, DeepEval 0,45 contra 0,46. Na tabela acima o grafo passa o piso só porque o piso também tem a nota do Promptfoo, que é mais dura.

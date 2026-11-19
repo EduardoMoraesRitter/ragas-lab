@@ -60,14 +60,20 @@ def main():
         for nome, fabrica in fabricas.items():
             if linha["scores"].get(nome) is not None:
                 continue
-            m = fabrica()
-            try:
-                m.measure(caso)
-                linha["scores"][nome] = round(float(m.score), 3)
-                linha["detalhes"][nome] = m.reason
-            except Exception as e:  # noqa: BLE001
-                linha["scores"][nome] = None
-                linha["detalhes"][nome] = f"ERRO: {type(e).__name__}: {str(e)[:200]}"
+            # Limite por minuto do nível gratuito: no 429, espera e tenta de novo
+            for tentativa in range(4):
+                m = fabrica()
+                try:
+                    m.measure(caso)
+                    linha["scores"][nome] = round(float(m.score), 3)
+                    linha["detalhes"][nome] = m.reason
+                    break
+                except Exception as e:  # noqa: BLE001
+                    linha["scores"][nome] = None
+                    linha["detalhes"][nome] = f"ERRO: {type(e).__name__}: {str(e)[:200]}"
+                    if "429" not in str(e) or tentativa == 3:
+                        break
+                    time.sleep(40)
             time.sleep(PAUSA_S)
         print(f"[deepeval] {r['modo']:4s} {r['id']} {linha['scores']}")
         saida.append(linha)

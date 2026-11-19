@@ -10,14 +10,16 @@ Este laboratório roda o mesmo RAG com 6 técnicas de busca e mede o resultado c
 
 Nota da busca = média de precisão e cobertura do contexto. Precisão diz se os trechos trazidos são os certos. Cobertura diz se eles contêm tudo o que o gabarito pede.
 
-| Posição | Técnica | Como busca | LLM na busca, por pergunta |
-|---|---|---|---|
-| 1 | Árvore (estilo PageIndex) | O LLM lê um sumário com título e resumo de cada seção e escolhe a seção | 1 |
-| 2 | Agêntica | O LLM busca sozinho com listar, grep e ler, em até 6 passos | 2 a 7 |
-| 3 | Vetor | Embedding e os 3 trechos mais parecidos | 0 |
-| 4 | BM25 | Palavra exata, sem stopwords | 0 |
-| 5 | Grafo (GraphRAG) | Grafo em memória com networkx, sem Neo4j; anda 1 salto a partir das entidades da pergunta | 0 |
-| 6 | Palavras (piso) | Conta palavras em comum, inclusive "a" e "de". Feita para errar | 0 |
+| Posição | Técnica | Nota da busca | Como busca | LLM na busca, por pergunta |
+|---|---|---|---|---|
+| 1 | Agêntica | 0,92 | O LLM busca sozinho com listar, grep e ler, em até 6 passos | 2 a 7 |
+| 2 | Árvore (estilo PageIndex) | 0,91 | O LLM lê um sumário com título e resumo de cada seção e escolhe a seção | 1 |
+| 3 | Vetor | 0,66 | Embedding e os 3 trechos mais parecidos | 0 |
+| 4 | BM25 | 0,65 | Palavra exata, sem stopwords | 0 |
+| 5 | Grafo (GraphRAG) | 0,42 | Grafo em memória com networkx, sem Neo4j; anda 1 salto a partir das entidades da pergunta | 0 |
+| 6 | Palavras (piso) | 0,39 | Conta palavras em comum, inclusive "a" e "de". Feita para errar | 0 |
+
+Agêntica e árvore empatam: o DeepEval pôs a agêntica na frente e o Ragas pôs a árvore. A árvore chega lá com 1 chamada de LLM. Em cada avaliador sozinho, o grafo fica abaixo do piso; ele só passa o piso aqui porque o piso também tem a nota do Promptfoo, que é mais dura.
 
 Números completos em [docs/RELATORIO.md](docs/RELATORIO.md) e [docs/tabelas.md](docs/tabelas.md).
 
