@@ -13,19 +13,19 @@ Pedido do Eduardo em 18/11/2026: melhorar o design no estilo do site, publicar o
 | Design do site | Escuro por padrão, com tema claro. Fundo `#080808`, destaque dourado `#c9a96e`. Títulos em Google Sans Display e Cormorant Garamond itálico; texto em Outfit. Pontilhado de fundo, etiquetas em caixa com borda fina, letras espaçadas em maiúsculas |
 | Design da página atual do ragas-lab | `docs/comparativo.html`: página solta, fonte do sistema, paleta azul/laranja/verde. Não combina com o site |
 | ragas-lab pode ficar público? | Sim. `.env` nunca foi commitado; nenhuma chave `AIza` em nenhum commit; autor dos commits só `eduardo.moraes.ritter@gmail.com`; corpus é fictício. Repositório com 2,6 MB |
-| Repositório `ragas-lab` no GitHub | Não existe ainda |
+| Repositório `ragas-lab` no GitHub | Criado em 19/11/2026, público |
 
 ## Checklist
 
 - [x] 1. ragas-lab: README público (o que é, resultado, como rodar, aviso de dado fictício); tirar `results/promptfoo-view.log` do git
 - [x] 2. ragas-lab: atualizar RELATORIO.md com as técnicas de busca (BM25, árvore, vetor, grafo, agêntica)
-- [ ] 3. Criar repositório público `EduardoMoraesRitter/ragas-lab` e fazer push
+- [x] 3. Criar repositório público `EduardoMoraesRitter/ragas-lab` e fazer push. Feito em 19/11/2026: https://github.com/EduardoMoraesRitter/ragas-lab (commit 5127a95)
 - [x] 4. Site: `src/data/ragas-lab/resultados.json` gerado por script a partir de `results/*.json` e `data/respostas-*.json`
 - [x] 5. Site: página `src/pages/ragas-lab.astro` no estilo do Lab Pix: gráficos de barras por técnica, ranking, tabela por pergunta com motivo do juiz, link para o repositório
 - [x] 6. Site: textos em `pt.json` e `en.json`; item "Lab RAG" no menu
 - [x] 7. `npm run build` local sem erro; conferir a página em tema escuro, claro e em celular
-- [ ] 8. Commit no `main` do site, push, acompanhar o Actions, abrir a página no ar
-- [ ] 9. ragas-lab: `homepageUrl` do repositório apontando para a página do site
+- [x] 8. Commit no `main` do site, push, acompanhar o Actions, abrir a página no ar. Feito em 19/11/2026: commits d02bc1e e 8d8fe58, Actions verde, página no ar conferida no Chrome
+- [x] 9. ragas-lab: `homepageUrl` do repositório apontando para a página do site. Feito na criação do repositório
 
 ## Decisões em aberto
 
@@ -46,3 +46,5 @@ Pedido do Eduardo em 18/11/2026: melhorar o design no estilo do site, publicar o
 - Correção: o script agora espera 40 s e tenta de novo até 4 vezes no 429. 3ª tentativa rodando com pausa de 5 s, só nas notas vazias.
 - 3ª tentativa (05:15 a 05:31): 127 de 128 notas. 4ª tentativa refez a única nota com JSON inválido. DeepEval completo.
 - Resultado mudou o topo: agêntica 0,92, árvore 0,91 (DeepEval prefere a agêntica, Ragas a árvore). Veredito do site, README e RELATORIO trocados para "empate no topo". Grafo fica abaixo do piso em cada avaliador sozinho; isso foi escrito no README e no RELATORIO.
+- Menu do site: com 11 itens, passava da tela entre 769 e cerca de 1000 px. Aperto novo em `global.css` a partir de 1040 px; conferido de 769 a 1440 px.
+- Tudo publicado em 19/11/2026.
